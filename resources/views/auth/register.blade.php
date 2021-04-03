@@ -26,6 +26,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="identificacion" class="col-md-4 col-form-label text-md-right">{{ __('Identificacion') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="identificacion" type="text" class="form-control @error('identificacion') is-invalid @enderror" name="identificacion" value="{{ old('identificacion') }}" required autocomplete="identificacion" autofocus>
+
+                                @error('identificacion')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
