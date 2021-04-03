@@ -37,7 +37,7 @@
                                     <li>
                                         <div class="timeline-panel">
                                             <div class="media mr-2">
-                                                <img alt="image" width="50" src="images/avatar/1.jpg">
+                                                <img alt="image" width="50" src="{{ asset('assets/images/avatar/1.jpg') }}">
                                             </div>
                                             <div class="media-body">
                                                 <h6 class="mb-1">Dr sultads Send you Photo</h6>
@@ -70,7 +70,7 @@
                                      <li>
                                         <div class="timeline-panel">
                                             <div class="media mr-2">
-                                                <img alt="image" width="50" src="images/avatar/1.jpg">
+                                                <img alt="image" width="50" src="{{ asset('assets/images/avatar/1.jpg') }}">
                                             </div>
                                             <div class="media-body">
                                                 <h6 class="mb-1">Dr sultads Send you Photo</h6>
@@ -110,7 +110,7 @@
                             <div class="header-info">
                                 <span>Hello, <strong>Samuel</strong></span>
                             </div>
-                            <img src="images/profile/pic1.jpg" width="20" alt=""/>
+                            <img src="{{ asset('assets/images/profile/pic1.jpg') }}" width="20" alt=""/>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="./app-profile.html" class="dropdown-item ai-icon">
