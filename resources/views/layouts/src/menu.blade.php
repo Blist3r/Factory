@@ -19,24 +19,24 @@
                     <span class="nav-text">Apps</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{ asset('assets/app-profile.html') }}">Profile</a></li>
+                    <li><a href="./app-profile.html">Profile</a></li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
                         <ul aria-expanded="false">
-                            <li><a href="{{ asset('assets/assets/email-compose.html') }}">Compose</a></li>
-                            <li><a href="{{ asset('assets/email-inbox.html') }}">Inbox</a></li>
-                            <li><a href="{{ asset('assets/email-read.html') }}">Read</a></li>
+                            <li><a href="./email-compose.html">Compose</a></li>
+                            <li><a href="./email-inbox.html">Inbox</a></li>
+                            <li><a href="./email-read.html">Read</a></li>
                         </ul>
                     </li>
-                    <li><a href="{{ asset('assets/app-calender.html') }}">Calendar</a></li>
+                    <li><a href="./app-calender.html">Calendar</a></li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Shop</a>
                         <ul aria-expanded="false">
-                            <li><a href="{{ asset('assets/ecom-product-grid.html') }}">Product Grid</a></li>
-                            <li><a href="{{ asset('assets/ecom-product-list.html') }}">Product List</a></li>
-                            <li><a href="{{ asset('assets/ecom-product-detail.html') }}">Product Details</a></li>
-                            <li><a href="{{ asset('assets/ecom-product-order.html') }}">Order</a></li>
-                            <li><a href="{{ asset('assets/ecom-checkout.html') }}">Checkout</a></li>
-                            <li><a href="{{ asset('assets/ecom-invoice.html') }}">Invoice</a></li>
-                            <li><a href="{{ asset('assets/ecom-customers.html') }}">Customers</a></li>
+                            <li><a href="./ecom-product-grid.html">Product Grid</a></li>
+                            <li><a href="./ecom-product-list.html">Product List</a></li>
+                            <li><a href="./ecom-product-detail.html">Product Details</a></li>
+                            <li><a href="./ecom-product-order.html">Order</a></li>
+                            <li><a href="./ecom-checkout.html">Checkout</a></li>
+                            <li><a href="./ecom-invoice.html">Invoice</a></li>
+                            <li><a href="./ecom-customers.html">Customers</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -47,7 +47,7 @@
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="{{ route('sedes') }}">Sedes</a></li>
-                    <li><a href="./chart-morris.html">Morris</a></li>
+                    <li><a href="{{ asset('assets/chart-morris.html') }}">Morris</a></li>
                     <li><a href="./chart-chartjs.html">Chartjs</a></li>
                     <li><a href="./chart-chartist.html">Chartist</a></li>
                     <li><a href="./chart-sparkline.html">Sparkline</a></li>
