@@ -43,10 +43,10 @@
             </li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-381-controls-3"></i>
-                    <span class="nav-text">Charts</span>
+                    <span class="nav-text">Configuracion</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="./chart-flot.html">Flot</a></li>
+                    <li><a href="{{ route('sedes') }}">Sedes</a></li>
                     <li><a href="./chart-morris.html">Morris</a></li>
                     <li><a href="./chart-chartjs.html">Chartjs</a></li>
                     <li><a href="./chart-chartist.html">Chartist</a></li>
