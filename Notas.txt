@@ -1,0 +1,2 @@
+- Listar en la tabla las sedes creadas ====== YA
+- Limpiar la tabla de sedes
