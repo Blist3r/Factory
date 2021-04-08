@@ -8,7 +8,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Table Stripped</h4>
+                        <h4 class="card-title">Sedes</h4>
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalAgregarSede">Agregar Sede</button>
                     </div>
                     <div class="card-body">
@@ -25,11 +25,8 @@
                             <table class="table table-bordered table-striped verticle-middle table-responsive-sm">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Task</th>
-                                        <th scope="col">Progress</th>
-                                        <th scope="col">Deadline</th>
-                                        <th scope="col">Label</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col">Nombre de la Sede</th>
+                                        <th scope="col">Configuracion</th>
                                     </tr>
                                 </thead>
                                 <tbody>

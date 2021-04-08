@@ -19,7 +19,7 @@
                     <span class="nav-text">Apps</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="./app-profile.html">Profile</a></li>
+                    <li><a href="{{asset('assets/app-profile.html')}}">Profile</a></li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
                         <ul aria-expanded="false">
                             <li><a href="./email-compose.html">Compose</a></li>
