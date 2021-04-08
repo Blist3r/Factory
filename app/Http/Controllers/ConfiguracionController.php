@@ -4,9 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Sede;
 class ConfiguracionController extends Controller
 {
     public function index() {
-        return view('configuracion.sedes');
+        $sedes = Sede::all();
+
+        return view('configuracion.sedes', ['sedes' => $sedes]);
+    }
+
+    public function create(Request $request)
+    {
+        if(!$request['nombre'])
+            return redirect()->back()->with(['create' => 0, 'mensaje' => 'El campo nombre es requerido']);
+
+        $sede = Sede::create($request->all());
+
+        if ($sede->save()) {
+            return redirect()->back()->with(['create' => 1, 'mensaje' => 'Sede creada correctamente']);
+        } else {
+            return redirect()->back()->with(['create' => 0, 'mensaje' => 'La sede no se creo correctamente']);
+        }
     }
 }
