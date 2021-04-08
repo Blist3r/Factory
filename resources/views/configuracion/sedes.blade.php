@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Table Stripped</h4>
-                        <button type="button" class="btn btn-success">Agregar Sede</button>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalAgregarSede">Agregar Sede</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -105,6 +105,26 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- MODALES --}}
+<div class="modal fade" id="modalAgregarSede">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Agregar Sede</h5>
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger light" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
             </div>
         </div>
     </div>
