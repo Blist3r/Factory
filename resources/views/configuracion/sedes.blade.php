@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="content-body">
     <div class="container-fluid">
         <div class="row">
@@ -8,6 +9,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Table Stripped</h4>
+                        <button type="button" class="btn btn-success">Agregar Sede</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
