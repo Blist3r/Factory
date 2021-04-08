@@ -47,7 +47,7 @@
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="{{ route('sedes') }}">Sedes</a></li>
-                    <li><a href="{{ asset('assets/chart-morris.html') }}">Morris</a></li>
+                    <li><a href="./chart-morris.html">Morris</a></li>
                     <li><a href="./chart-chartjs.html">Chartjs</a></li>
                     <li><a href="./chart-chartist.html">Chartist</a></li>
                     <li><a href="./chart-sparkline.html">Sparkline</a></li>
