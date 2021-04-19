@@ -17,6 +17,14 @@ function EditarSede(id) {
     });
 }
 
+function EliminarSede(id) {
+    if (confirm('Seguro desea eliminar la sede?')) {
+
+        window.location.href='sedes/delete/' + id;
+        
+    }
+}
+
 function LimpiarInput() {
     $('#nombre').val('');
     $('#id').val('');

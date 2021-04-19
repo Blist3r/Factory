@@ -30,3 +30,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/configuracion/sedes', [App\Http\Controllers\ConfiguracionController::class, 'index'])->name('sedes');
 Route::post('/configuracion/sedes/create', [App\Http\Controllers\ConfiguracionController::class, 'create'])->name('sedes.create');
 Route::post('/configuracion/sedes/show', [App\Http\Controllers\ConfiguracionController::class, 'show'])->name('sedes.show');
+Route::get('/configuracion/sedes/delete/{id}', [App\Http\Controllers\ConfiguracionController::class, 'delete'])->name('sedes.delete');
+//Route::post('/configuracion/user/show', [App\Http\Controllers\ConfiguracionController::class, 'show'])->name('user.show');
+//Route::get('/configuracion/user/delete/{id}', [App\Http\Controllers\ConfiguracionController::class, 'delete'])->name('user.delete');

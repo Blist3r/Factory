@@ -43,4 +43,16 @@ class ConfiguracionController extends Controller
     public function show(Request $request) {
         return Sede::find($request['id']);
     }
+
+
+    public function delete(Request $request) {
+        $sede = Sede::find($request['id']);
+        
+
+        if ($sede->delete()) {
+            return redirect()->back()->with(['create' => 1, 'mensaje' => 'Sede eliminada correctamente']);
+        } else {
+            return redirect()->back()->with(['create' => 0, 'mensaje' => 'La sede no se eliminó correctamente']);
+        }   
+    }
 }
