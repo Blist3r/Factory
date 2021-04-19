@@ -12,6 +12,9 @@
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 	<link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
 
+    {{-- CSRF TOKEN --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
     @yield('myStyles')
 
 </head>

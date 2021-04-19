@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('mySripts') <script src="{{ asset('assets/js/sedes.js') }}"></script> @endsection
+
 @section('content')
 
 <div class="content-body">
@@ -9,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Sedes</h4>
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalAgregarSede">Agregar Sede</button>
+                        <button type="button" class="btn btn-success" onclick="LimpiarInput()" data-toggle="modal" data-target="#modalAgregarSede">Agregar Sede</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -34,20 +36,14 @@
                                         <tr>
                                             <td>{{ $sede->nombre }}</td>
                                             <td>
-                                                <div class="progress" style="background: rgba(127, 99, 244, .1)">
-                                                    <div class="progress-bar bg-primary" style="width: 70%;" role="progressbar"><span class="sr-only">70% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Apr 20,2018</td>
-                                            <td><span class="badge badge-primary">70%</span>
-                                            </td>
-                                            <td><span><a href="javascript:void()" class="mr-4" data-toggle="tooltip"
-                                                        data-placement="top" title="Edit"><i
-                                                            class="fa fa-pencil color-muted"></i> </a><a
-                                                        href="javascript:void()" data-toggle="tooltip"
-                                                        data-placement="top" title="Close"><i
-                                                            class="fa fa-close color-danger"></i></a></span>
+                                                <span>
+                                                    <a href="javascript:EditarSede({{ $sede->id }})" class="mr-4" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                        <i class="fa fa-pencil color-muted"></i>
+                                                    </a>
+                                                    <a href="javascript:SeliminarSede({{ $sede->id }})" data-toggle="tooltip" data-placement="top" title="Close">
+                                                        <i class="fa fa-close color-danger"></i>
+                                                    </a>
+                                                </span>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -79,6 +75,7 @@
 
                         <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Escriba el nombre de la sede" required="">
                     </div>
+                    <input type="hidden" name="id" id="id" value="">
                 </form>
             </div>
             <div class="modal-footer">

@@ -13,8 +13,21 @@ class ConfiguracionController extends Controller
         return view('configuracion.sedes', ['sedes' => $sedes]);
     }
 
-    public function create(Request $request)
-    {
+    public function create(Request $request) {
+        if($request['id']){
+            $sede = Sede::find($request['id']);
+
+            $sede->update([
+                'nombre' => $request['nombre']
+            ]);
+
+            if ($sede->save()) {
+                return redirect()->back()->with(['create' => 1, 'mensaje' => 'Sede actualizada correctamente']);
+            } else {
+                return redirect()->back()->with(['create' => 0, 'mensaje' => 'La sede no se actualizo correctamente']);
+            }
+        }
+
         if(!$request['nombre'])
             return redirect()->back()->with(['create' => 0, 'mensaje' => 'El campo nombre es requerido']);
 
@@ -25,5 +38,9 @@ class ConfiguracionController extends Controller
         } else {
             return redirect()->back()->with(['create' => 0, 'mensaje' => 'La sede no se creo correctamente']);
         }
+    }
+
+    public function show(Request $request) {
+        return Sede::find($request['id']);
     }
 }

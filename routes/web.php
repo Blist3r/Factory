@@ -29,3 +29,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Sedes
 Route::get('/configuracion/sedes', [App\Http\Controllers\ConfiguracionController::class, 'index'])->name('sedes');
 Route::post('/configuracion/sedes/create', [App\Http\Controllers\ConfiguracionController::class, 'create'])->name('sedes.create');
+Route::post('/configuracion/sedes/show', [App\Http\Controllers\ConfiguracionController::class, 'show'])->name('sedes.show');
