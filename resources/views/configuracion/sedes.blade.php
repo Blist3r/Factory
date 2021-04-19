@@ -40,7 +40,7 @@
                                                     <a href="javascript:EditarSede({{ $sede->id }})" class="mr-4" data-toggle="tooltip" data-placement="top" title="Edit">
                                                         <i class="fa fa-pencil color-muted"></i>
                                                     </a>
-                                                    <a href="javascript:SeliminarSede({{ $sede->id }})" data-toggle="tooltip" data-placement="top" title="Close">
+                                                    <a href="javascript:EliminarSede({{ $sede->id }})" data-toggle="tooltip" data-placement="top" title="Close">
                                                         <i class="fa fa-close color-danger"></i>
                                                     </a>
                                                 </span>

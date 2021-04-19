@@ -1,2 +1,5 @@
 - Listar en la tabla las sedes creadas ====== YA
 - Limpiar la tabla de sedes
+
+//////////////////// 19/04/2021
+- Hacer el metodo eliminar de sedes
