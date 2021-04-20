@@ -28,13 +28,17 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Nombre del Usuario</th>
+                                        <th scope="col">Identificación</th>
+                                        <th scope="col">Sede</th>
                                         <th scope="col">Configuracion</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($users as $user)
                                         <tr>
-                                            <td>{{ $user->nombre }}</td>
+                                            <td>{{ $user->nombre }} {{ $user->apellido}} </td>
+                                            <td>  {{ $user->identificacion }}  </td>
+                                            <td>  {{ $user->sedes }}  </td>
                                             <td>
                                                 <span>
                                                     <a href="javascript:EditarUser({{ $user->id }})" class="mr-4" data-toggle="tooltip" data-placement="top" title="Edit">
@@ -83,15 +87,21 @@
                     </div>
 
                     <div class="form-row mt-3">
+                        <label>Contraseña</label>
+
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Escriba su contraseña" required="">
+                    </div>
+
+                    <div class="form-row mt-3">
                         <label>Identificación</label>
 
-                        <input type="number" class="form-control" name="identificacion" id="identificacion" placeholder="Escriba la identificacion del operador" required="">
+                        <input type="number" class="form-control" name="identificacion" id="identificacion" placeholder="Escriba la identificacion del operador" required="" unique="">
                     </div>
 
                     <div class="form-row mt-3">
                         <label>Sede</label>
 
-                        <select name="sede_id" id="sede_id" class="form-control" required>
+                        <select name="sedes_id" id="sedes_id" class="form-control" required>
                             <option value="">Seleccione la sede</option>
                             @foreach (App\Models\Sede::orderBy('nombre', 'ASC')->get() as $sede)
                                 <option value="{{ $sede->id }}">{{ $sede->nombre }}</option>
