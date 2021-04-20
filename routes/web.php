@@ -31,5 +31,8 @@ Route::get('/configuracion/sedes', [App\Http\Controllers\ConfiguracionController
 Route::post('/configuracion/sedes/create', [App\Http\Controllers\ConfiguracionController::class, 'create'])->name('sedes.create');
 Route::post('/configuracion/sedes/show', [App\Http\Controllers\ConfiguracionController::class, 'show'])->name('sedes.show');
 Route::get('/configuracion/sedes/delete/{id}', [App\Http\Controllers\ConfiguracionController::class, 'delete'])->name('sedes.delete');
-//Route::post('/configuracion/user/show', [App\Http\Controllers\ConfiguracionController::class, 'show'])->name('user.show');
-//Route::get('/configuracion/user/delete/{id}', [App\Http\Controllers\ConfiguracionController::class, 'delete'])->name('user.delete');
+//Usuarios
+Route::get('/configuracion/users', [App\Http\Controllers\UsersController::class, 'index'])->name('users');
+Route::post('/configuracion/users/create', [App\Http\Controllers\UsersController::class, 'create'])->name('users.create');
+Route::post('/configuracion/users/show', [App\Http\Controllers\UsersController::class, 'show'])->name('users.show');
+Route::get('/configuracion/users/delete/{id}', [App\Http\Controllers\UsersController::class, 'delete'])->name('users.delete');
