@@ -21,7 +21,7 @@ function EliminarSede(id) {
     if (confirm('Seguro desea eliminar la sede?')) {
 
         window.location.href='sedes/delete/' + id;
-        
+
     }
 }
 

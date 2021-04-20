@@ -21,7 +21,7 @@ function EliminarUser(id) {
     if (confirm('Seguro desea eliminar el usuario?')) {
 
         window.location.href='users/delete/' + id;
-        
+
     }
 }
 

@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Users</h4>
-                        <button type="button" class="btn btn-success" onclick="LimpiarInput()" data-toggle="modal" data-target="#modalAgregarSede">Agregar Usuario</button>
+                        <button type="button" class="btn btn-success" onclick="LimpiarInput()" data-toggle="modal" data-target="#modalAgregarUsuario">Agregar Usuario</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -58,7 +58,7 @@
 </div>
 
 {{-- MODALES --}}
-<div class="modal fade" id="modalAgregarSede">
+<div class="modal fade" id="modalAgregarUsuario">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -67,7 +67,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('users.create') }}" method="post" id="formCrearSede">
+                <form action="{{ route('users.create') }}" method="post" id="formCrearUsuario">
                     @csrf
 
                     <div class="form-row">
@@ -75,13 +75,36 @@
 
                         <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Escriba el nombre del operador" required="">
                     </div>
-                    
+
+                    <div class="form-row mt-3">
+                        <label>Apellido</label>
+
+                        <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Escriba el apellido del operador" required="">
+                    </div>
+
+                    <div class="form-row mt-3">
+                        <label>Identificación</label>
+
+                        <input type="number" class="form-control" name="identificacion" id="identificacion" placeholder="Escriba la identificacion del operador" required="">
+                    </div>
+
+                    <div class="form-row mt-3">
+                        <label>Sede</label>
+
+                        <select name="sede_id" id="sede_id" class="form-control" required>
+                            <option value="">Seleccione la sede</option>
+                            @foreach (App\Models\Sede::orderBy('nombre', 'ASC')->get() as $sede)
+                                <option value="{{ $sede->id }}">{{ $sede->nombre }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <input type="hidden" name="id" id="id" value="">
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger light" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" onclick="document.getElementById('formCrearUser').submit()">Guardar</button>
+                <button type="button" class="btn btn-primary" onclick="document.getElementById('formCrearUsuario').submit()">Guardar</button>
             </div>
         </div>
     </div>
