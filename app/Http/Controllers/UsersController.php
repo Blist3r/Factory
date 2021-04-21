@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 
+use Illuminate\Support\Facades\Validator;
+
+use Illuminate\Support\Facades\Hash;
+
 
 class UsersController extends Controller
 {
@@ -16,10 +20,30 @@ class UsersController extends Controller
         return view('configuracion.users', ['users' => $users]);
     }
 
+    
     public function create(Request $request) {
-        if($request['id']){
-            $user = User::find($request['id']);
 
+        
+
+        if($request['id']){
+            //Se valida el nombre, apellido y la sede seleccionada.
+            Validator::make($request->all(), [
+                'nombre' => 'required|max:255',
+                'apellido' => 'required|max:255',
+                'sedes_id' => 'required'
+            ])->validate();
+
+            //Verifica el user, llamandoló para comparar los datos.
+            $user = User::find($request['id']);
+            
+            //Vuelve a llamar a "user" y si la identificación cambio la modifica, de no serlo así la deja igual.
+            if ($user->identificacion != $request["identificacion"]) {
+                Validator::make($request->all(), [
+                    'identificacion' => 'required|unique:users|integer'
+                ])->validate();
+            }
+            
+            //Al momento de editar el usuario, se verifican los datos ya digitados.
             $user->update([
                 'nombre' => $request['nombre'],
                 'apellido' => $request['apellido'],
@@ -27,6 +51,14 @@ class UsersController extends Controller
                 'sede' => $request['sede']
             ]);
 
+            //Se encripta la contraseña en la base de datos.
+            if ($request["password"]) {
+                $user->update([
+                    'password' => Hash::make($request['password'])
+                ]);
+            }
+
+            //Se pone una condicion para saber si el usuario fue creado correctamente o no.
             if ($user->save()) {
                 return redirect()->back()->with(['create' => 1, 'mensaje' => 'El usuario fue actualizado correctamente']);
             } else {
@@ -36,19 +68,18 @@ class UsersController extends Controller
            
             
         }
+        //Se valida que los datos hallan rellanado completamente 
+        Validator::make($request->all(), [
+            'nombre' => 'required|max:255',
+            'apellido' => 'required|max:255',
+            'identificacion' => 'required|unique:users|integer',
+            'password' => 'required',
+            'sedes_id' => 'required'
+        ])->validate();
 
-        if(!$request['nombre'])
-            return redirect()->back()->with(['create' => 0, 'mensaje' => 'El campo nombre es requerido']);
+        //Encripta la contraseña
+        $request["password"]=Hash::make($request['password']);
 
-        if(!$request['apellido'])
-            return redirect()->back()->with(['create' => 0, 'mensaje' => 'El campo apellido es requerido']);
-
-        if(!$request['identificacion'])
-            return redirect()->back()->with(['create' => 0, 'mensaje' => 'El campo identificación es requerido']);
-
-        if(!$request['sede'])
-            return redirect()->back()->with(['create' => 0, 'mensaje' => 'El campo sede es requerido']);
-            
         $user = User::create($request->all());
 
         if ($user->save()) {

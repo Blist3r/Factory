@@ -10,8 +10,12 @@ function EditarUser(id) {
         type: 'POST',
         data: { id:id },
         success: function (data) {
-            $("#modalAgregarUser").modal('show');
+            $("#modalAgregarUsuario").modal('show');
             $('#nombre').val(data.nombre);
+            $('#apellido').val(data.apellido);
+            $('#identificacion').val(data.identificacion);
+            $('#sedes_id').selectpicker('val', data.sedes_id);
+            $("#sedes_id option[value="+data.sedes_id+"]").attr('selected', 'selected');
             $('#id').val(data.id);
         }
     });

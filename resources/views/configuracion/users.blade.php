@@ -24,6 +24,17 @@
                                 </div>
                             @endif
 
+                            @if ($errors->any())
+                                <div class="alert alert-danger alert-dismissible alert-alt fade show">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            
+
                             <table class="table table-bordered table-striped verticle-middle table-responsive-sm">
                                 <thead>
                                     <tr>
@@ -38,7 +49,7 @@
                                         <tr>
                                             <td>{{ $user->nombre }} {{ $user->apellido}} </td>
                                             <td>  {{ $user->identificacion }}  </td>
-                                            <td>  {{ $user->sedes }}  </td>
+                                            <td>  {{ App\Models\Sede::find($user->sedes_id)->nombre }}  </td>
                                             <td>
                                                 <span>
                                                     <a href="javascript:EditarUser({{ $user->id }})" class="mr-4" data-toggle="tooltip" data-placement="top" title="Edit">
