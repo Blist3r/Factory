@@ -58,7 +58,7 @@ class UsersController extends Controller
                 ]);
             }
 
-            //Se pone una condicion para saber si el usuario fue creado correctamente o no.
+            //Se pone una condicion para saber si el usuario fue actualizado correctamente o no.
             if ($user->save()) {
                 return redirect()->back()->with(['create' => 1, 'mensaje' => 'El usuario fue actualizado correctamente']);
             } else {
@@ -81,23 +81,24 @@ class UsersController extends Controller
         $request["password"]=Hash::make($request['password']);
 
         $user = User::create($request->all());
-
+        //Se pone una condicion para saber si el usuario fue creado correctamente o no.
         if ($user->save()) {
             return redirect()->back()->with(['create' => 1, 'mensaje' => 'El usuario fue creado correctamente']);
         } else {
             return redirect()->back()->with(['create' => 0, 'mensaje' => 'El usuario no se creado correctamente']);
         }
     }
-
+//  Tampoco me acuerdo de este :( ###########################################################################
     public function show(Request $request) {
         return User::find($request['id']);
     }
 
 
+    // Al momento de eliminar un usuario, se le pone la condicion delete para que elimine el usuario
     public function delete(Request $request) {
         $user = User::find($request['id']);
         
-
+        //Se pone una condicion para saber si el usuario fue eliminado correctamente o no.
         if ($user->delete()) {
             return redirect()->back()->with(['create' => 1, 'mensaje' => 'El usuario fue eliminado correctamente']);
         } else {

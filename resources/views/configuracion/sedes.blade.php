@@ -68,6 +68,7 @@
             </div>
             <div class="modal-body">
                 <form action="{{ route('sedes.create') }}" method="post" id="formCrearSede">
+                    <!-- Token para encriptar -->
                     @csrf
 
                     <div class="form-row">

@@ -4,6 +4,7 @@ $.ajaxSetup({
     }
 });
 
+// Se pone la funcion "EditarUser" para que al momento de editar la sede cambie los datos que se le ponen en el success.
 function EditarUser(id) {
     $.ajax({
         url: 'users/show',
@@ -20,7 +21,8 @@ function EditarUser(id) {
         }
     });
 }
-
+// Se pone un confirm para que no haya errores almomento de intentar eliminar el usuario
+// Dentro de la condicion se busca el usuario por id y se elimina.
 function EliminarUser(id) {
     if (confirm('Seguro desea eliminar el usuario?')) {
 

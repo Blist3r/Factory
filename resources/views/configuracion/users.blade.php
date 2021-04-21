@@ -10,7 +10,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Users</h4>
+                        <h4 class="card-title">Usuarios</h4>
                         <button type="button" class="btn btn-success" onclick="LimpiarInput()" data-toggle="modal" data-target="#modalAgregarUsuario">Agregar Usuario</button>
                     </div>
                     <div class="card-body">
@@ -47,6 +47,7 @@
                                 <tbody>
                                     @foreach ($users as $user)
                                         <tr>
+                                            <!-- En la tabla se pone el nombre segun lo digitado en el boton de agregar user -->
                                             <td>{{ $user->nombre }} {{ $user->apellido}} </td>
                                             <td>  {{ $user->identificacion }}  </td>
                                             <td>  {{ App\Models\Sede::find($user->sedes_id)->nombre }}  </td>
@@ -83,6 +84,7 @@
             </div>
             <div class="modal-body">
                 <form action="{{ route('users.create') }}" method="post" id="formCrearUsuario">
+                    <!-- Token para encriptar -->
                     @csrf
 
                     <div class="form-row">
@@ -114,6 +116,7 @@
 
                         <select name="sedes_id" id="sedes_id" class="form-control" required>
                             <option value="">Seleccione la sede</option>
+                            <!-- Se crea un foreaach, para que busque las sedes que hay en la base de datos y se les da un orden -->
                             @foreach (App\Models\Sede::orderBy('nombre', 'ASC')->get() as $sede)
                                 <option value="{{ $sede->id }}">{{ $sede->nombre }}</option>
                             @endforeach

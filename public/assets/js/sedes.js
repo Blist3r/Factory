@@ -3,7 +3,7 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
-
+// Se pone la funcion "EditarSede" para que al momento de editar la sede cambie los datos que se le ponen en el success.
 function EditarSede(id) {
     $.ajax({
         url: 'sedes/show',
@@ -17,6 +17,8 @@ function EditarSede(id) {
     });
 }
 
+// Se pone un confirm para que no haya errores almomento de intentar eliminar la sede
+// Dentro de la condicion se busca la sede por id y se elimina.
 function EliminarSede(id) {
     if (confirm('Seguro desea eliminar la sede?')) {
 
