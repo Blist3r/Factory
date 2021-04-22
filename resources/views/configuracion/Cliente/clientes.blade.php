@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('mySripts') <script src="{{ asset('assets/js/productos.js') }}"></script> @endsection
+@section('mySripts') <script src="{{ asset('assets/js/clientes.js') }}"></script> @endsection
 
 @section('content')
 
@@ -10,8 +10,8 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Productos</h4>
-                        <button type="button" class="btn btn-success" onclick="LimpiarInput()" data-toggle="modal" data-target="#modalAgregarProducto">Agregar Producto</button>
+                        <h4 class="card-title">Clientes</h4>
+                        <button type="button" class="btn btn-success" onclick="LimpiarInput()" data-toggle="modal" data-target="#modalAgregarCliente">Agregar Cliente</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -38,28 +38,36 @@
                             <table class="table table-bordered table-striped verticle-middle table-responsive-sm">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Imagen del Producto</th>
-                                        <th scope="col">Nombre del Producto</th>
-                                        <th scope="col">Descripción</th>
-                                        <th scope="col">Valor</th>
-                                        <th scope="col">Categoria</th>
+                                        <th scope="col">Nombre del Usuario</th>
+                                        <th scope="col">Identificación</th>
+                                        <th scope="col">Direccion</th>
+                                        <th scope="col">Telefono</th>
+                                        <th scope="col">Correo</th>
                                         <th scope="col">Configuracion</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($productos as $producto)
+                                    @foreach ($clientes as $cliente)
                                         <tr>
+                                            <!-- En la tabla se pone el nombre segun lo digitado en el boton de agregar user -->
+                                            <td>{{ $cliente->nombre }} {{ $cliente->apellido}} </td>
+                                            <td>  {{ $cliente->identificacion }}  </td>
+                                            <td>  {{ $cliente->direccion }}  </td>
+                                            <td>  {{ $cliente->telefono }}  </td>
+                                            <td>  {{ $cliente->correo }}  </td>
+                
+                                            <td>
                                                 <span>
-                                                    <a href="javascript:EditarProducto({{ $producto->id }})" class="mr-4" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    <a href="javascript:EditarCliente({{ $cliente->id }})" class="mr-4" data-toggle="tooltip" data-placement="top" title="Edit">
                                                         <i class="fa fa-pencil color-muted"></i>
                                                     </a>
-                                                    <a href="javascript:EliminarProducto({{ $producto->id }})" data-toggle="tooltip" data-placement="top" title="Close">
+                                                    <a href="javascript:EliminarCliente({{ $cliente->id }})" data-toggle="tooltip" data-placement="top" title="Close">
                                                         <i class="fa fa-close color-danger"></i>
                                                     </a>
                                                 </span>
                                             </td>
                                         </tr>
-                                    @endforeach 
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -71,57 +79,53 @@
 </div>
 
 {{-- MODALES --}}
-<div class="modal fade" id="modalAgregarProducto">
+<div class="modal fade" id="modalAgregarCliente">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Agregar Producto</h5>
+                <h5 class="modal-title">Agregar Cliente</h5>
                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('productos.create') }}" method="post" id="formCrearProducto" enctype="multipart/form-data">
+                <form action="{{ route('clientes.create') }}" method="post" id="formCrearCliente">
                     <!-- Token para encriptar -->
                     @csrf
-                    <label>Imagen</label>
-                    <div class="input-group mt-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Subir la imagen</span>
-                        </div>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="imagen" id="imagen">
-                                 <label class="custom-file-label">Elegir el archivo </label>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row mt-3">
+
+                    <div class="form-row">
                         <label>Nombre</label>
 
-                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Escriba el nombre del producto" required="">
+                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Escriba el nombre del operador" required="">
                     </div>
 
                     <div class="form-row mt-3">
-                        <label>Descripción</label>
+                        <label>Apellido</label>
 
-                        <input type="longText" class="form-control" name="descripcion" id="descripcion" placeholder="Escriba la descripcion del producto" required="">
+                        <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Escriba el apellido del operador" required="">
                     </div>
 
                     <div class="form-row mt-3">
-                        <label>Valor</label>
+                        <label>Identificacion</label>
 
-                        <input type="integer" class="form-control" name="valor" id="valor" placeholder="Escriba el valor del producto" required="">
+                        <input type="number" class="form-control" name="identificacion" id="identificacion" placeholder="Escriba la identificacion del cliente" required="">
                     </div>
 
-                    <div class="form-row mt-3"> 
-                        <label>Categorias</label>
+                    <div class="form-row mt-3">
+                        <label>Direccion</label>
 
-                        <select name="categorias" id="categorias" class="form-control" required>
-                            <option value="">Seleccione la categoria</option>
-                            <!-- Se crea un foreaach, para que busque en el arreglo los valores que hay y los vuelva un valor. -->
-                            @foreach (App\Models\Categoria::orderBy('nombre', 'ASC')->get() as $categoria)
-                                <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
-                            @endforeach
-                        </select>
+                        <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Escriba la direccion del cliente" required="">
+                    </div>
+
+                    <div class="form-row mt-3">
+                        <label>Telefono</label>
+
+                        <input type="number" class="form-control" name="telefono" id="telefono" placeholder="Escriba la direccion del cliente" required="">
+                    </div>
+
+                    <div class="form-row mt-3">
+                        <label>Correo</label>
+
+                        <input type="mail" class="form-control" name="correo" id="correo" placeholder="Escriba la direccion del cliente" required="">
                     </div>
 
                     <input type="hidden" name="id" id="id" value="">
@@ -129,10 +133,9 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger light" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" onclick="document.getElementById('formCrearProducto').submit()">Guardar</button>
+                <button type="button" class="btn btn-primary" onclick="document.getElementById('formCrearCliente').submit()">Guardar</button>
             </div>
         </div>
     </div>
 </div>
 @endsection
-        

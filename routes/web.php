@@ -51,4 +51,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/configuracion/productos/create', [App\Http\Controllers\ProductosController::class, 'create'])->name('productos.create');
     Route::post('/configuracion/productos/show', [App\Http\Controllers\ProductosController::class, 'show'])->name('productos.show');
     Route::get('/configuracion/productos/delete/{id}', [App\Http\Controllers\ProductosController::class, 'delete'])->name('productos.delete');
+     //Clientes
+     Route::get('/configuracion/clientes', [App\Http\Controllers\ClientesController::class, 'index'])->name('clientes');
+     Route::post('/configuracion/clientes/create', [App\Http\Controllers\ClientesController::class, 'create'])->name('clientes.create');
+     Route::post('/configuracion/clientes/show', [App\Http\Controllers\ClientesController::class, 'show'])->name('clientes.show');
+     Route::get('/configuracion/clientes/delete/{id}', [App\Http\Controllers\ClientesController::class, 'delete'])->name('clientes.delete');
 });
