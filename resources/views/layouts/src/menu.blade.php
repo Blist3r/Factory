@@ -48,8 +48,8 @@
                 <ul aria-expanded="false">
                     <li><a href="{{ route('sedes') }}">Sedes</a></li>
                     <li><a href="{{ route('users') }}">Usuarios</a></li>
-                    <li><a href="./chart-chartjs.html">Chartjs</a></li>
-                    <li><a href="./chart-chartist.html">Chartist</a></li>
+                    <li><a href="{{ route('categorias') }}">Categorias</a></li>
+                    <li><a href="{{ route('productos') }}">Productos</a></li>
                     <li><a href="./chart-sparkline.html">Sparkline</a></li>
                     <li><a href="./chart-peity.html">Peity</a></li>
                 </ul>

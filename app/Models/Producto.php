@@ -12,6 +12,9 @@ class Producto extends Model
     protected $fillable = [
         'nombre',
         'valor',
+        'descripcion',
+        'imagen',
+        'categoria_id',
     ];
 
     public function venta()
@@ -22,5 +25,10 @@ class Producto extends Model
     public function inventarios()
     {
         return $this->hasOne(Inventario::class);
+    }
+
+    public function categorias()
+    {
+        return $this->belongsTo(Categoria::class);
     }
 }

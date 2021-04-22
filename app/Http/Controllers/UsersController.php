@@ -88,7 +88,7 @@ class UsersController extends Controller
             return redirect()->back()->with(['create' => 0, 'mensaje' => 'El usuario no se creado correctamente']);
         }
     }
-//  Tampoco me acuerdo de este :( ###########################################################################
+    //Se traen los datos con ajax para editar   
     public function show(Request $request) {
         return User::find($request['id']);
     }
