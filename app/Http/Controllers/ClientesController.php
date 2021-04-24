@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Cliente;
 
+use Illuminate\Support\Facades\Validator;
+
 class ClientesController extends Controller
 {
     
@@ -16,17 +18,34 @@ class ClientesController extends Controller
         return view('configuracion.Cliente.clientes', ['clientes' => $clientes]);
     }
 
-     // Se le pide a la base de datos que busque la sede por ID. 
+     // Se le pide a la base de datos que busque el cliente por ID. 
             
      public function create(Request $request) {
+
+        //--------------------------EDITAR CLIENTE, Si existe el $request->id, entonces se pasara a editar el registro con el ID correspondiente. ----------------------------
+        
         
         if($request['id']){
+
+            //Se valida el nombre, apellido y la sede seleccionada.
+            Validator::make($request->all(), [
+                'nombre' => 'required|max:255',
+                'apellido' => 'required|max:255',
+                
+            ])->validate();
+
             $clientes = Cliente::find($request['id']);
 
-        // Se actualiza la sede con lo que se le pidido que modificara en este caso el nombre.
+            //Vuelve a llamar a "cliente" y compara la identificacion que tiene el registro, si detecta que hay un cambio genera ese cambio dentro del registro, sino la deja como estaba.
+            if ($clientes->identificacion != $request["identificacion"]) {
+                Validator::make($request->all(), [
+                    'identificacion' => 'required|unique:clientes|integer'
+                ])->validate();
+            }
+
+
+        // Se actualiza el cliente con lo que se le pidido que modificara en este caso el nombre.
             $clientes->update([
-                'nombre' => $request['nombre'],
-                'identificacion' => $request['identificacion'],
                 'direccion' => $request['direccion'],
                 'telefono' => $request['telefono'],
                 'correo' => $request['correo'],
@@ -39,9 +58,16 @@ class ClientesController extends Controller
             }
         }
 
-        // Se redirecciona si al intentar modificar, se le olvida registrar el nombre dando un mensaje de alerta.
-        if(!$request['nombre'])
-            return redirect()->back()->with(['create' => 0, 'mensaje' => 'El campo nombre es requerido']);
+        //---------------------- CREAR CLIENTE, Si no llega el $request->id, se creara un registro nuevo. -------------------------------
+        
+        //$request->id = Lo que llega el ID de ese registro. y lo que hace es buscarlo si es que existe. 
+
+        //Se valida que los datos hallan rellanado completamente 
+        Validator::make($request->all(), [
+            'nombre' => 'required|max:255',
+            'apellido' => 'required|max:255',
+            'identificacion' => 'required|unique:clientes|integer',
+        ])->validate();
         
         // Al momento de crear la sede, se le piden todos los datos registrados
         $clientes = Cliente::create($request->all());

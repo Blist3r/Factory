@@ -115,7 +115,7 @@
                     <div class="form-row mt-3"> 
                         <label>Categorias</label>
 
-                        <select name="categorias" id="categorias" class="form-control" required>
+                        <select name="categorias_id" id="categorias_id" class="form-control" required>
                             <option value="">Seleccione la categoria</option>
                             <!-- Se crea un foreaach, para que busque en el arreglo los valores que hay y los vuelva un valor. -->
                             @foreach (App\Models\Categoria::orderBy('nombre', 'ASC')->get() as $categoria)

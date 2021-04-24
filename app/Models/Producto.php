@@ -14,7 +14,7 @@ class Producto extends Model
         'valor',
         'descripcion',
         'imagen',
-        'categoria_id',
+        'categorias_id',
     ];
 
     public function venta()
