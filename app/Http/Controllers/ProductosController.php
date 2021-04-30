@@ -24,7 +24,10 @@ class ProductosController extends Controller
     
             // Se actualiza la sede con lo que se le pidido que modificara en este caso el nombre.
                 $productos->update([
-                    'nombre' => $request['nombre']
+                    'nombre' => $request['nombre'],
+                    'valor' => $request['valor'],
+                    'descripcion' => $request['descripcion'],
+                    'imagen' => $request['imagen'],
                 ]);
             // Se redirecciona a la misma pagina con un mensaje el cual diga si se se actualizo correctamente o no.
                 if ($productos->save()) {

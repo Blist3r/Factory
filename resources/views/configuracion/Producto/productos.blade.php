@@ -38,7 +38,7 @@
                             <table class="table table-bordered table-striped verticle-middle table-responsive-sm">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Imagen del Producto</th>
+                                        
                                         <th scope="col">Nombre del Producto</th>
                                         <th scope="col">Descripción</th>
                                         <th scope="col">Valor</th>
@@ -49,6 +49,13 @@
                                 <tbody>
                                     @foreach ($productos as $producto)
                                         <tr>
+                                        <!-- Se agregan los espacios cada dato en la tabla -->
+                                        <td> <div class="d-flex align-items-center"><img src=" {{ asset('storage/'.$producto->imagen) }} " class="rounded-lg mr-2" width="24" alt=""></div> {{ $producto->nombre }} </td>
+                                        <td> {{ $producto->descripcion }} </td>
+                                        <td> {{ $producto->valor }} </td>
+                                        <td>  {{ App\Models\Categoria::find($producto->categorias_id)->nombre }}  </td>
+
+                                            <td>
                                                 <span>
                                                     <a href="javascript:EditarProducto({{ $producto->id }})" class="mr-4" data-toggle="tooltip" data-placement="top" title="Edit">
                                                         <i class="fa fa-pencil color-muted"></i>
@@ -115,7 +122,7 @@
                     <div class="form-row mt-3"> 
                         <label>Categorias</label>
 
-                        <select name="categorias" id="categorias" class="form-control" required>
+                        <select name="categorias_id" id="categorias_id" class="form-control" required>
                             <option value="">Seleccione la categoria</option>
                             <!-- Se crea un foreaach, para que busque en el arreglo los valores que hay y los vuelva un valor. -->
                             @foreach (App\Models\Categoria::orderBy('nombre', 'ASC')->get() as $categoria)

@@ -21,7 +21,7 @@ function EditarCliente(id) {
         }
     });
 }
-
+z
 // Se pone un confirm para que no haya errores almomento de intentar eliminar el cliente
 // Dentro de la condicion se busca la sede por id y se elimina.
 function EliminarCliente(id) {
