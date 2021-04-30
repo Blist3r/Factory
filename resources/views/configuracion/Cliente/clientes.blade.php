@@ -113,19 +113,19 @@
                     <div class="form-row mt-3">
                         <label>Direccion</label>
 
-                        <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Escriba la direccion del cliente" required="">
+                        <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Escriba la direccion del cliente" >
                     </div>
 
                     <div class="form-row mt-3">
                         <label>Telefono</label>
 
-                        <input type="number" class="form-control" name="telefono" id="telefono" placeholder="Escriba la direccion del cliente" required="">
+                        <input type="number" class="form-control" name="telefono" id="telefono" placeholder="Escriba la direccion del cliente">
                     </div>
 
                     <div class="form-row mt-3">
                         <label>Correo</label>
 
-                        <input type="mail" class="form-control" name="correo" id="correo" placeholder="Escriba la direccion del cliente" required="">
+                        <input type="email" class="form-control" name="correo" id="correo" placeholder="Escriba la direccion del cliente">
                     </div>
 
                     <input type="hidden" name="id" id="id" value="">

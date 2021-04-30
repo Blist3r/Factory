@@ -23,7 +23,7 @@ class UsersController extends Controller
     
     public function create(Request $request) {
 
-        
+         //--------------------------EDITAR, Si existe el $request->id, entonces se pasara a editar el registro con el ID correspondiente. ----------------------------
 
         if($request['id']){
             //Se valida el nombre, apellido y la sede seleccionada.
@@ -36,7 +36,7 @@ class UsersController extends Controller
             //Verifica el user, llamandoló para comparar los datos.
             $user = User::find($request['id']);
             
-            //Vuelve a llamar a "user" y si la identificación cambio la modifica, de no serlo así la deja igual.
+            //Vuelve a llamar a "user" y compara la identificacion que tiene el registro, si detecta que hay un cambio genera ese cambio dentro del registro, sino la deja como estaba.
             if ($user->identificacion != $request["identificacion"]) {
                 Validator::make($request->all(), [
                     'identificacion' => 'required|unique:users|integer'
@@ -65,7 +65,8 @@ class UsersController extends Controller
                 return redirect()->back()->with(['create' => 0, 'mensaje' => 'El usuario no se actualizado correctamente']);
             }
 
-           
+             //---------------------- CREAR, Si no llega el $request->id, se creara un registro nuevo. -------------------------------
+        
             
         }
         //Se valida que los datos hallan rellanado completamente 
@@ -92,6 +93,8 @@ class UsersController extends Controller
     public function show(Request $request) {
         return User::find($request['id']);
     }
+
+    //------------------- ELIMINAR ------------------------
 
 
     // Al momento de eliminar un usuario, se le pone la condicion delete para que elimine el usuario
