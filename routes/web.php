@@ -27,11 +27,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Autenticación para que redireccione al LOGIN
 Route::middleware(['auth'])->group(function () {
     //index
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    Route::get('/', [App\Http\Controllers\VentaController::class, 'index'])->name('venta');
     //Valida que el usuario tenga el rol en este caso "admin"
-    Route::group(['middleware' => ['role:admin']], function () {
+    Route::group(['middleware' => ['auth']], function () {
         // Routas Configuracion
         // Sedes
         Route::get('/configuracion/sedes', [App\Http\Controllers\ConfiguracionController::class, 'index'])->name('sedes');

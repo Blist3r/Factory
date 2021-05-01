@@ -23,7 +23,7 @@
     <!--**********************************
         Main wrapper start
     ***********************************-->
-    <div id="main-wrapper">
+    <div id="main-wrapper" class="{{ Request::is('/') ? "menu-toggle" : ""  }}">
 
         <!--**********************************
             Nav header start
