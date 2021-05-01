@@ -27,21 +27,21 @@
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Identificación</strong></label>
 
-                                            
+
                                             <!-- Se pone en la clase "form-control @error('identificacion') is-invalid @enderror" para que redibujo la casilla en rojo indicando que esta errado, pero se poneun value con "{{ old('identificacion') }}" para que NO borre la informacion dada. -->
                                             <!-- Mensaje de error para Identificacion -->
-                                            
+
                                             <input name="identificacion" id="identificacion" type="number" required="" class="form-control @error('identificacion') is-invalid @enderror" value="{{ old('identificacion') }}" placeholder="Ingrese su identificación">
                                             @error('identificacion')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
-                                            @enderror                                        
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Contraseña</strong></label>
-                                            
-                                            
+
+
                                             <!-- Se pone en la clase "form-control @error('password') is-invalid @enderror" para que borre el dato actual y redibuje la casilla en rojo indicando que el dato esta errado -->
                                             <!-- Mensaje de error para contraseña -->
 
@@ -50,7 +50,7 @@
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
-                                            @enderror    
+                                            @enderror
                                         </div>
                                         <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                             <div class="form-group">
