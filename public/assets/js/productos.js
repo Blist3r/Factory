@@ -4,10 +4,10 @@ $.ajaxSetup({
     }
 });
 
-// Se pone la funcion "EditarUser" para que al momento de editar la sede cambie los datos que se le ponen en el success.
+// Se pone la funcion "EditarProducto" para que al momento de editar la sede cambie los datos que se le ponen en el success.
 function EditarProducto(id) {
     $.ajax({
-        url: 'users/show',
+        url: 'productos/show',
         type: 'POST',
         data: { id:id },
         success: function (data) {

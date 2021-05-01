@@ -38,7 +38,7 @@
                             <table class="table table-bordered table-striped verticle-middle table-responsive-sm">
                                 <thead>
                                     <tr>
-                                        
+                                        <th scope="col">Imagen del Producto</th>
                                         <th scope="col">Nombre del Producto</th>
                                         <th scope="col">Descripción</th>
                                         <th scope="col">Valor</th>
@@ -50,7 +50,8 @@
                                     @foreach ($productos as $producto)
                                         <tr>
                                         <!-- Se agregan los espacios cada dato en la tabla -->
-                                        <td> <div class="d-flex align-items-center"><img src=" {{ asset('storage/'.$producto->imagen) }} " class="rounded-lg mr-2" width="24" alt=""></div> {{ $producto->nombre }} </td>
+                                        <td> <div class="d-flex align-items-center"><img src=" {{ asset('storage/'.$producto->imagen) }} " class="rounded-lg mr-2" width="80" alt=""></div>  </td>
+                                        <td> {{ $producto->nombre }} </td>
                                         <td> {{ $producto->descripcion }} </td>
                                         <td> {{ $producto->valor }} </td>
                                         <td>  {{ App\Models\Categoria::find($producto->categorias_id)->nombre }}  </td>
