@@ -29,7 +29,7 @@ Route::middleware(['auth'])->group(function () {
     //index
     Route::get('/', [App\Http\Controllers\VentaController::class, 'index'])->name('venta');
     //Valida que el usuario tenga el rol en este caso "admin"
-    Route::group(['middleware' => ['auth']], function () {
+    Route::group(['middleware' => ['role:admin']], function () {
         // Routas Configuracion
         // Sedes
         Route::get('/configuracion/sedes', [App\Http\Controllers\ConfiguracionController::class, 'index'])->name('sedes');
