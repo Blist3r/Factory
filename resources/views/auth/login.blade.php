@@ -28,7 +28,7 @@
                                             <label class="mb-1"><strong>Identificación</strong></label>
 
 
-                                            <!-- Se pone en la clase "form-control @error('identificacion') is-invalid @enderror" para que redibujo la casilla en rojo indicando que esta errado, pero se poneun value con "{{ old('identificacion') }}" para que NO borre la informacion dada. -->
+                                            <!-- Se pone en la clase "form-control error('identificacion') is-invalid enderror" para que redibujo la casilla en rojo indicando que esta errado, pero se poneun value con " old('identificacion') " para que NO borre la informacion dada. -->
                                             <!-- Mensaje de error para Identificacion -->
 
                                             <input name="identificacion" id="identificacion" type="number" required="" class="form-control @error('identificacion') is-invalid @enderror" value="{{ old('identificacion') }}" placeholder="Ingrese su identificación">
@@ -42,7 +42,7 @@
                                             <label class="mb-1"><strong>Contraseña</strong></label>
 
 
-                                            <!-- Se pone en la clase "form-control @error('password') is-invalid @enderror" para que borre el dato actual y redibuje la casilla en rojo indicando que el dato esta errado -->
+                                            <!-- Se pone en la clase "form-control error('password') is-invalid enderror" para que borre el dato actual y redibuje la casilla en rojo indicando que el dato esta errado -->
                                             <!-- Mensaje de error para contraseña -->
 
                                             <input name="password" id="password" type="password" required="" class="form-control @error('password') is-invalid @enderror" placeholder="Ingrese su contraseña">
