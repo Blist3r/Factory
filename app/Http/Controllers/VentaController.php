@@ -14,4 +14,10 @@ class VentaController extends Controller
 
         return view('welcome', ['categorias' => $categorias, 'productos' => $productos]);
     }
+
+    public function show(Request $request) {
+        $productos = Producto::paginate(12);
+
+        return $productos;
+    }
 }
