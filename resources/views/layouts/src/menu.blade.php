@@ -138,15 +138,5 @@
                 </ul>
             </li>
         </ul>
-
-        <div class="add-menu-sidebar">
-            <img src="{{asset('assets/images/icon1.png')}}" alt=""/>
-            <p>Organize your menus through button bellow</p>
-            <a href="javascript:void(0);" class="btn btn-primary btn-block light">+ Add Menus</a>
-        </div>
-        <div class="copyright">
-            <p><strong>Davur - Restaurant Admin Dashboard</strong> © 2020 All Rights Reserved</p>
-            <p>Made with <i class="fa fa-heart"></i> by DexignZone</p>
-        </div>
     </div>
 </div>
