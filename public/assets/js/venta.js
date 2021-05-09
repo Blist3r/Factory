@@ -9,11 +9,13 @@ $(document).ready(function () {
 });
 
 // funcion para traer los productos
-function cargarProductos() {
+function cargarProductos(categoria=false) {
     $.ajax({
         url: '/ventas/show',
         type: 'POST',
+        data: {categoria:categoria},
         success: function (data) {
+            console.log(data);
             let html = "";
             data.data.forEach(producto => {
                 html += `<div class="col-xl-3 col-lg-6 col-md-4 col-sm-6">
@@ -21,7 +23,7 @@ function cargarProductos() {
                                 <div class="card-body">
                                     <div class="new-arrival-product">
                                         <div class="new-arrivals-img-contnent">
-                                            <img class="img-fluid" src="storage/${producto.imagen}" alt="">
+                                            <img class="img-fluid" src="storage/${producto.imagen}" alt="" width="150">
                                         </div>
                                         <div class="new-arrival-content text-center mt-3">
                                             <h4>${producto.nombre}</h4>
@@ -54,6 +56,12 @@ function agregarProducto(id, nombre, valor) {
         return;
     }
 
+    let ValidarProducto = ValidadProducto(id, cantidad, valor, nombre);
+
+    if (ValidarProducto==1) {
+        return;
+    }
+
     let html = `<li class="list-group-item d-flex justify-content-between lh-condensed" id="producto_${id}">
                     <div>
                         <h6 class="my-0">${nombre}</h6>
@@ -81,11 +89,11 @@ function eliminarProducto(id) {
     calcularDetalle("-");
 }
 
-function calcularDetalle(op) {
+function calcularDetalle(op='') {
     // Aumentar cantidad de productos totales
     if (op == "+") {
         $("#total_productos").html(parseInt($("#total_productos").html()) + 1);
-    } else {
+    } else if(op == '-'){
         $("#total_productos").html(parseInt($("#total_productos").html()) - 1);
     }
 
@@ -96,5 +104,46 @@ function calcularDetalle(op) {
     });
 
     $('#total_valor').html("$"+total);
+}
+
+function ValidadProducto(id, cantidad, valor, nombre) {
+
+    let retornar = 0;
+
+    $("input[name='productos[]']").each(function(indice, elemento) {
+        
+        
+        if ($(elemento).val()==id) {
+            if ($('#producto_'+id +' input[name="cantidad[]"]').val() != cantidad) {
+                $('#producto_'+id +' input[name="cantidad[]"]').val(cantidad);
+                $('#producto_'+id +' input[name="valor[]"]').val(valor*cantidad);
+
+                let html = `
+                    <div>
+                        <h6 class="my-0">${nombre}</h6>
+                        <small class="text-muted">Cantidad: ${cantidad}</small>
+                    </div>
+                    <span class="text-muted">$${valor*cantidad}</span>
+                    <input type="hidden" name="productos[]" id="productos[]" value="${id}">
+                    <input type="hidden" name="cantidad[]" id="cantidad[]" value="${cantidad}">
+                    <input type="hidden" name="valor[]" id="valor[]" value="${valor*cantidad}">
+                    <button type="button" onclick="eliminarProducto(${id})" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span></button>`;
+            
+                    // Agregar html de detalle productos
+                    $('#producto_'+id).html(html);
+
+                calcularDetalle();
+            }
+           
+            retornar = 1;
+        }
+
+        
+        
+    });
+    return retornar;
+
+
+    
 }
 

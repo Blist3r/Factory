@@ -17,7 +17,10 @@ class VentaController extends Controller
 
     public function show(Request $request) {
         $productos = Producto::paginate(12);
-
+        if ($request['categoria'] != 'false' ) {
+            $productos = Producto::where('categorias_id', $request['categoria'])->paginate(12);
+        }
         return $productos;
     }
+    
 }

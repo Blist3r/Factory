@@ -16,8 +16,8 @@
                                     <form>
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <select name="categorias_id" id="categorias_id" class="form-control" required>
-                                                    <option value="">Seleccione la categoria</option>
+                                                <select name="categorias_id" id="categorias_id" class="form-control" required onchange="cargarProductos(this.value)">
+                                                    <option value="false">Seleccione la categoria</option>
                                                     <!-- Se crea un foreaach, para que busque las sedes que hay en la base de datos y se les da un orden -->
                                                     @foreach ($categorias as $categoria)
                                                         <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
