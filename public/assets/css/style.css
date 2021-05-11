@@ -3337,7 +3337,7 @@ input[type="button"].btn-block {
   .nav-tabs .nav-link.active,
   .nav-tabs .nav-item.show .nav-link {
     color: #495057;
-    background-color: #fbfbfb;
+    background-color:#C8841F;
     border-color: #dee2e6 #dee2e6 #fbfbfb; }
   .nav-tabs .dropdown-menu {
     margin-top: -1px;
@@ -15802,7 +15802,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 [data-primary="color_2"][data-theme-version="transparent"] .header-left input:focus {
   border-color: #143b64; }
 [data-primary="color_2"] .new-arrival-content .price {
-  color: #143b64; }
+  color: #000000; }
 [data-primary="color_2"] .chart-link a i.text-primary {
   color: #143b64; }
 [data-primary="color_2"] #user-activity .nav-tabs .nav-link.active {
@@ -16116,7 +16116,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 [data-primary="color_3"][data-theme-version="transparent"] .header-left input:focus {
   border-color: #F3A52B; }
 [data-primary="color_3"] .new-arrival-content .price {
-  color: #F3A52B; }
+  color: #000000; }
 [data-primary="color_3"] .chart-link a i.text-primary {
   color: #F3A52B; }
 [data-primary="color_3"] #user-activity .nav-tabs .nav-link.active {
@@ -16430,7 +16430,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 [data-primary="color_4"][data-theme-version="transparent"] .header-left input:focus {
   border-color: #4527a0; }
 [data-primary="color_4"] .new-arrival-content .price {
-  color: #4527a0; }
+  color: #000000; }
 [data-primary="color_4"] .chart-link a i.text-primary {
   color: #4527a0; }
 [data-primary="color_4"] #user-activity .nav-tabs .nav-link.active {
@@ -16744,7 +16744,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 [data-primary="color_5"][data-theme-version="transparent"] .header-left input:focus {
   border-color: #c62828; }
 [data-primary="color_5"] .new-arrival-content .price {
-  color: #c62828; }
+  color: #000000; }
 [data-primary="color_5"] .chart-link a i.text-primary {
   color: #c62828; }
 [data-primary="color_5"] #user-activity .nav-tabs .nav-link.active {
@@ -17058,7 +17058,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 [data-primary="color_6"][data-theme-version="transparent"] .header-left input:focus {
   border-color: #283593; }
 [data-primary="color_6"] .new-arrival-content .price {
-  color: #283593; }
+  color: #000000; }
 [data-primary="color_6"] .chart-link a i.text-primary {
   color: #283593; }
 [data-primary="color_6"] #user-activity .nav-tabs .nav-link.active {
@@ -17372,7 +17372,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 [data-primary="color_7"][data-theme-version="transparent"] .header-left input:focus {
   border-color: #7356f1; }
 [data-primary="color_7"] .new-arrival-content .price {
-  color: #7356f1; }
+  color: #000000; }
 [data-primary="color_7"] .chart-link a i.text-primary {
   color: #7356f1; }
 [data-primary="color_7"] #user-activity .nav-tabs .nav-link.active {
@@ -27485,7 +27485,7 @@ span#counter {
   margin-bottom: 10px; }
 .new-arrival-content .price {
   font-weight: 700;
-  color: #F3A52B;
+  color: #000000;
   font-size: 22px;
   margin-bottom: 20px; }
 .new-arrival-content p {
