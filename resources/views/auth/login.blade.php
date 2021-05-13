@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Davur - Restaurant Food Order Bootstrap Admin Dashboard</title>
+    <title>Factory</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png')}}">
+    <link rel="icon" type="image/png" sizes="20x20" href="{{ asset('assets/images/favicon.ico') }}">
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
 
 </head>
 
-<body class="h-100">
+<body class="h-100" style="background: url('{{ asset('assets/images/big/navi.jpeg') }}')">
     <div class="authincation h-100">
         <div class="container h-100">
             <div class="row justify-content-center h-100 align-items-center">
@@ -21,9 +21,11 @@
                         <div class="row no-gutters">
                             <div class="col-xl-12">
                                 <div class="auth-form">
-                                    <h4 class="text-center mb-4">Ingresa a la Factory</h4>
+                                <img class="brand-title" src="{{ asset('assets/images/logo-text.png') }}" width="450px" > 
+                                    
                                     <form action="{{ route('login')}}" method="post">
                                     @csrf
+                                    
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Identificación</strong></label>
 

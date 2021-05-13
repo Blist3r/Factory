@@ -6,7 +6,6 @@
 <div class="content-body">
     <div class="container-fluid">
         <div class="row">
-
             <div class="col-xl-9 col-lg-8 col-md-8 col-sm-6">
                 <div class="row">
                     <div class="col-xl-12 col-lg-12">
@@ -16,7 +15,8 @@
                                     <form>
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <select name="categorias_id" id="categorias_id" class="form-control" required onchange="cargarProductos(this.value)">
+                                                <!-- Se crea una funcion que se le esta pasa un parametro con el cual tiene su categoria -->
+                                                <select name="categorias_id" id="categorias_id" class="form-control" required onchange="cargarProductos(categoria=this.value)">
                                                     <option value="false">Seleccione la categoria</option>
                                                     <!-- Se crea un foreaach, para que busque las sedes que hay en la base de datos y se les da un orden -->
                                                     @foreach ($categorias as $categoria)
@@ -24,8 +24,9 @@
                                                     @endforeach
                                                 </select>
                                             </div>
+                                             <!-- Se crea una funcion y se pone "false" la anterior para que salte esa funcion y valide la segunda -->
                                             <div class="col-sm-6 mt-2 mt-sm-0">
-                                                <input type="text" class="form-control" placeholder="Busque un producto">
+                                                <input type="text" class="form-control" placeholder="Busque un producto" onkeyup="cargarProductos(categoria=false, q=this.value)">
                                             </div>
                                         </div>
                                     </form>

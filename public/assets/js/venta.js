@@ -9,11 +9,11 @@ $(document).ready(function () {
 });
 
 // funcion para traer los productos
-function cargarProductos(categoria=false) {
+function cargarProductos(categoria=false, q=false) {
     $.ajax({
         url: '/ventas/show',
         type: 'POST',
-        data: {categoria:categoria},
+        data: {categoria:categoria, q:q},
         success: function (data) {
             console.log(data);
             let html = "";

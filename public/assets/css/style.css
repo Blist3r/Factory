@@ -8995,7 +8995,7 @@ a {
   transition: all .2s ease;
   z-index: 5; }
   .nav-header .logo-abbr {
-    max-width: 52px; }
+    max-width: 65px; }
     @media only screen and (max-width: 575px) {
       .nav-header .logo-abbr {
         max-width: 40px; } }
@@ -9030,8 +9030,8 @@ a {
         padding-right: 0;
         justify-content: center; } }
   .nav-header .brand-title {
-    margin-left: 20px;
-    max-width: 120px;
+    margin-left: -6px;
+    max-width: 210px;
     margin-top: 5px; }
     [data-theme-version="dark"] .nav-header .brand-title {
       background-position: 0 120%; }
@@ -9514,7 +9514,7 @@ svg.pulse-svg {
     padding: 0 0 0 20px;
     display: flex;
     align-items: center;
-    background: #F3A52B;
+    background: #E08B06;
     border-radius: 0.375rem 28px 28px 0.375rem; }
     @media only screen and (max-width: 575px) {
       .header-right .header-profile > a.nav-link {

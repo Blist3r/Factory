@@ -15,12 +15,14 @@ class VentaController extends Controller
         return view('welcome', ['categorias' => $categorias, 'productos' => $productos]);
     }
 
-    public function show(Request $request) {
+    public function show(Request $request) { 
         $productos = Producto::paginate(12);
-        if ($request['categoria'] != 'false' ) {
+        if ($request['categoria'] && $request['categoria'] != 'false' ) {
             $productos = Producto::where('categorias_id', $request['categoria'])->paginate(12);
+        }else if ($request['q'] && $request['q'] != 'false' ){
+            $productos = Producto::where('nombre', 'like', '%'.$request['q'].'%')->paginate(12);
         }
-        return $productos;
+        return $productos;  
     }
     
 }
