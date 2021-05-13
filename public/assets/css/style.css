@@ -11997,7 +11997,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     padding-right: 0;
     justify-content: center; }
   [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .nav-header .nav-control .hamburger .line {
-    background-color: #F3A52B !important; }
+    background-color: #ffffff !important; }
 [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .copyright,
 [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .add-menu-sidebar {
   display: none; }
@@ -12791,7 +12791,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   [data-sidebar-style="overlay"] .nav-header .hamburger.is-active {
     left: 0; }
     [data-sidebar-style="overlay"] .nav-header .hamburger.is-active .line {
-      background-color: #F3A52B; }
+      background-color: #ffffff; }
 [data-sidebar-style="overlay"] .menu-toggle .nav-header {
   position: absolute;
   left: auto; }
@@ -15436,7 +15436,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-headerbg="color_1"] .nav-header .hamburger.is-active .line,
 [data-headerbg="color_1"] .nav-header .hamburger .line {
-  background: #F3A52B !important; }
+  background: #ffffff !important; }
 
 @media (min-width: 992px) {
   [data-container="boxed"] #main-wrapper {
@@ -16081,7 +16081,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 [data-primary="color_3"] .header-right .header-profile .profile_title {
   background: #F3A52B; }
 [data-primary="color_3"][data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .nav-header .nav-control .hamburger .line {
-  background-color: #F3A52B !important; }
+  background-color: #ffffff !important; }
 [data-primary="color_3"] .deznav .metismenu > li > a svg {
   color: #F3A52B; }
 [data-primary="color_3"] .deznav .metismenu > li:hover > a, [data-primary="color_3"] .deznav .metismenu > li:focus > a {
@@ -16094,7 +16094,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   [data-primary="color_3"] [data-sidebar-style="modern"] .deznav .metismenu > li > a:hover > a, [data-primary="color_3"] [data-sidebar-style="modern"] .deznav .metismenu > li > a:focus > a, [data-primary="color_3"] [data-sidebar-style="modern"] .deznav .metismenu > li > a:active > a, [data-primary="color_3"] [data-sidebar-style="modern"] .deznav .metismenu > li > a.mm-active > a {
     background-color: white; } }
 [data-primary="color_3"][data-sidebar-style="overlay"] .nav-header .hamburger.is-active .line {
-  background-color: #F3A52B; }
+  background-color: #ffffff; }
 [data-primary="color_3"] .nav-user {
   background: #F3A52B; }
 [data-primary="color_3"] .sidebar-right .sidebar-right .sidebar-right-trigger {
@@ -16408,7 +16408,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   [data-primary="color_4"] [data-sidebar-style="modern"] .deznav .metismenu > li > a:hover > a, [data-primary="color_4"] [data-sidebar-style="modern"] .deznav .metismenu > li > a:focus > a, [data-primary="color_4"] [data-sidebar-style="modern"] .deznav .metismenu > li > a:active > a, [data-primary="color_4"] [data-sidebar-style="modern"] .deznav .metismenu > li > a.mm-active > a {
     background-color: #dad2f4; } }
 [data-primary="color_4"][data-sidebar-style="overlay"] .nav-header .hamburger.is-active .line {
-  background-color: #4527a0; }
+  background-color: #ffffff; }
 [data-primary="color_4"] .nav-user {
   background: #4527a0; }
 [data-primary="color_4"] .sidebar-right .sidebar-right .sidebar-right-trigger {
@@ -27460,7 +27460,8 @@ span#counter {
 .new-arrival-product .new-arrivals-img-contnent {
   overflow: hidden; }
   .new-arrival-product .new-arrivals-img-contnent img {
-    width: 100%;
+    width: 190px;
+    height: 125px;
     -webkit-transition: all 0.5s;
     -ms-transition: all 0.5s;
     transition: all 0.5s; }
@@ -29525,3 +29526,5 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
       color: #fff; }
 
 /*# sourceMappingURL=style.css.map */
+
+
