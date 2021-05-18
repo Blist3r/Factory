@@ -25,6 +25,8 @@ class CreateDetallesventasTable extends Migration
                 ->constrained()
                 ->onDelete('cascade');
 
+            $table->integer("cantidad");
+
             $table->timestamps();
         });
     }

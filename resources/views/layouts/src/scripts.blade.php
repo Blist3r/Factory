@@ -9,12 +9,12 @@
     <script src="{{ asset('assets/vendor/jquery.counterup/jquery.counterup.min.js') }}"></script>
 
 	<!-- Apex Chart -->
-	<script src="{{ asset('assets/vendor/apexchart/apexchart.js') }}"></script>
+	{{-- <script src="{{ asset('assets/vendor/apexchart/apexchart.js') }}"></script> --}}
 
 	<!-- Chart piety plugin files -->
 	<script src="{{ asset('assets/vendor/peity/jquery.peity.min.js') }}"></script>
 
 	<!-- Dashboard 1 -->
-	<script src="{{ asset('assets/js/dashboard/dashboard-1.js') }}"></script>
+	{{-- <script src="{{ asset('assets/js/dashboard/dashboard-1.js') }}"></script> --}}
 
     @yield('mySripts')

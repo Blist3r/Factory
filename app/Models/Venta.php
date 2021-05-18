@@ -12,6 +12,9 @@ class Venta extends Model
     protected $fillable = [
         'fecha',
         'total',
+        'sedes_id',
+        'users_id',
+        'clientes_id'
     ];
 
     public function productos()

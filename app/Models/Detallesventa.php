@@ -9,4 +9,9 @@ class Detallesventa extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'ventas_id', 'productos_id', 'cantidad'
+    ];
+
+
 }

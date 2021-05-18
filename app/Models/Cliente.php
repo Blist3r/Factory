@@ -16,7 +16,6 @@ class Cliente extends Model
         'direccion',
         'telefono',
         'correo',
-
     ];
 
     public function pedidos()
