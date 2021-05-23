@@ -42,6 +42,9 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/configuracion/users/create', [App\Http\Controllers\UsersController::class, 'create'])->name('users.create');
         Route::post('/configuracion/users/show', [App\Http\Controllers\UsersController::class, 'show'])->name('users.show');
         Route::get('/configuracion/users/delete/{id}', [App\Http\Controllers\UsersController::class, 'delete'])->name('users.delete');
+        // Roles
+        Route::get('/configuracion/roles', [App\Http\Controllers\ConfiguracionController::class, 'roles'])->name('roles');
+        Route::post('/configuracion/roles/create', [App\Http\Controllers\ConfiguracionController::class, 'roles_create'])->name('roles.create');
         //Categorias
         Route::get('/configuracion/categorias', [App\Http\Controllers\ConfiguracionController::class, 'index_categorias'])->name('categorias');
         Route::post('/configuracion/categorias/create', [App\Http\Controllers\ConfiguracionController::class, 'create_categorias'])->name('categorias.create');
@@ -52,6 +55,12 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/configuracion/productos/create', [App\Http\Controllers\ProductosController::class, 'create'])->name('productos.create');
         Route::post('/configuracion/productos/show', [App\Http\Controllers\ProductosController::class, 'show'])->name('productos.show');
         Route::get('/configuracion/productos/delete/{id}', [App\Http\Controllers\ProductosController::class, 'delete'])->name('productos.delete');
+
+        // Rutas de Reportes
+        // Ventas
+        Route::prefix('reportes')->group(function () {
+            Route::get('/ventas', [App\Http\Controllers\ReportesController::class, 'ventas'])->name('ventas');
+        });
     });
 
     //Clientes

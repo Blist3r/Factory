@@ -123,18 +123,6 @@
                         </select>
                     </div>
 
-                    <div class="form-row mt-3">
-                        <label>Tipo</label>
-
-                        <select name="rol" id="rol" class="form-control" required>
-                            <option value="">Seleccione el tipo</option>
-                            <!-- Se crea un foreaach, para que busque las sedes que hay en la base de datos y se les da un orden -->
-                            @foreach (\Spatie\Permission\Models\Role::orderBy('name', 'ASC')->get() as $tipo)
-                                <option value="{{ $tipo->name }}">{{ $tipo->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
                     <input type="hidden" name="id" id="id" value="">
                 </form>
             </div>

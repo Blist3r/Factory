@@ -17,6 +17,8 @@ function EditarUser(id) {
             $('#identificacion').val(data.identificacion);
             $('#sedes_id').selectpicker('val', data.sedes_id);
             $("#sedes_id option[value="+data.sedes_id+"]").attr('selected', 'selected');
+            $('#rol').selectpicker('val', data.roles[0].name);
+            $("#rol option[value="+data.roles[0].name+"]").attr('selected', 'selected');
             $('#id').val(data.id);
         }
     });

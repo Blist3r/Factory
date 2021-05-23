@@ -19,7 +19,7 @@ class Venta extends Model
 
     public function productos()
     {
-        return $this->hasMany(Producto::class);
+        return $this->hasMany(Detallesventa::class, 'ventas_id');
     }
 
     public function clientes()

@@ -13,5 +13,9 @@ class Detallesventa extends Model
         'ventas_id', 'productos_id', 'cantidad'
     ];
 
+    public function producto()
+    {
+        return $this->hasOne(Producto::class, 'id', 'productos_id');
+    }
 
 }

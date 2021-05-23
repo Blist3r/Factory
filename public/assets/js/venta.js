@@ -266,7 +266,10 @@ function ValidarVenta() {
         type: 'POST',
         data: data,
         success: function (data) {
-            if(data == 1){
+            if(data && data != 0){
+                // Impresion del ticket
+                print_ticket(data);
+
                 swal({
                     type: 'success',
                     title: 'Correcto',
@@ -288,6 +291,18 @@ function ValidarVenta() {
         },
         error(e) {
             console.log(e);
+        }
+    });
+}
+
+function print_ticket(data) {
+    $.ajax({
+        url : "http://localhost/api_factory/ticket.php",
+        type : "GET",
+        data: data,
+        dataType : 'json',
+        success : function(data){
+            console.log(data);
         }
     });
 }

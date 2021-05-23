@@ -12,6 +12,7 @@ use App\Models\Cliente;
 use App\Models\Detallesventa;
 use App\Models\User;
 use App\Models\Venta;
+use App\Models\Sede;
 
 class VentaController extends Controller
 {
@@ -91,9 +92,16 @@ class VentaController extends Controller
 
         DB::commit();
 
-        //$this->Imprimir($venta->id);
+        $venta = Venta::with('productos.producto')->find($venta->id);
+        $sucursal = Sede::find($vendedor->sedes_id);
 
-        return 1;
+        return [
+            'venta' => $venta,
+            'vendedor' => $vendedor,
+            'cliente' => $cliente,
+            'total' => $total,
+            'sucursal' => $sucursal
+        ];
     }
 
 }
