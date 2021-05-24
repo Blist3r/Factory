@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('mySripts') <script src="{{ asset('assets/js/roles.js') }}"></script> @endsection
+@section('mySripts') <script src="{{ asset('assets/js/permisos.js') }}"></script> @endsection
 
 @section('content')
 
@@ -10,8 +10,8 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Roles</h4>
-                        <button type="button" class="btn btn-success" onclick="LimpiarInput()" data-toggle="modal" data-target="#modalAgregarRol">Agregar Rol</button>
+                        <h4 class="card-title">Permisos</h4>
+                        <button type="button" class="btn btn-success" onclick="LimpiarInput()" data-toggle="modal" data-target="#modalAgregarPermiso">Agregar Permiso</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -38,19 +38,19 @@
                             <table class="table table-bordered table-striped verticle-middle table-responsive-sm">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Nombre del Rol</th>
+                                        <th scope="col">Nombre del Permiso</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($roles as $rol)
+                                    @foreach ($permisos as $permiso)
                                         <tr>
-                                            <td>{{ $rol->name }}  </td>
+                                            <td>{{ $permiso->name }}  </td>
                                             <td>
                                                 <span>
-                                                    <a href="javascript:EditarRol({{ $rol->id }})" class="mr-4" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    <a href="javascript:EditarPermiso({{ $permiso->id }})" class="mr-4" data-toggle="tooltip" data-placement="top" title="Edit">
                                                         <i class="fa fa-pencil color-muted"></i>
                                                     </a>
-                                                    <a href="javascript:EliminarRol({{ $rol->id }})" data-toggle="tooltip" data-placement="top" title="Close">
+                                                    <a href="javascript:EliminarPermiso({{ $permiso->id }})" data-toggle="tooltip" data-placement="top" title="Close">
                                                         <i class="fa fa-close color-danger"></i>
                                                     </a>
                                                 </span>
@@ -68,23 +68,23 @@
 </div>
 
 {{-- MODALES --}}
-<div class="modal fade" id="modalAgregarRol">
+<div class="modal fade" id="modalAgregarPermiso">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Agregar Rol</h5>
+                <h5 class="modal-title">Agregar Permiso</h5>
                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('roles.create') }}" method="post" id="formCrearRol">
+                <form action="{{ route('permisos.create') }}" method="post" id="formCrearPermiso">
                     <!-- Token para encriptar -->
                     @csrf
 
                     <div class="form-row">
                         <label>Nombre</label>
 
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Escriba el nombre del rol" required="">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Escriba el nombre del permiso" required="">
                     </div>
 
                     <input type="hidden" name="id" id="id" value="">
@@ -92,7 +92,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger light" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" onclick="document.getElementById('formCrearRol').submit()">Guardar</button>
+                <button type="button" class="btn btn-primary" onclick="document.getElementById('formCrearPermiso').submit()">Guardar</button>
             </div>
         </div>
     </div>

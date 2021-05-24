@@ -17,6 +17,7 @@
                     <li><a href="{{ route('productos') }}">Productos</a></li>
                     <li><a href="{{ route('clientes') }}">Clientes</a></li>
                     <li><a href="{{ route('roles') }}">Roles</a></li>
+                    <li><a href="{{ route('permisos') }}">Permisos</a></li>
                 </ul>
             </li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">

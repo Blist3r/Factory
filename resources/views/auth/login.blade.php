@@ -21,7 +21,7 @@
                         <div class="row no-gutters">
                             <div class="col-xl-12">
                                 <div class="auth-form">
-                                <img class="brand-title" src="{{ asset('assets/images/logo-text.png') }}" width="450px" > 
+                                <img class="brand-title" src="{{ asset('assets/images/logo-text.png') }}" width="450px" >   
                                     
                                     <form action="{{ route('login')}}" method="post">
                                     @csrf

@@ -41,6 +41,7 @@
                                         <th scope="col">Nombre del Usuario</th>
                                         <th scope="col">Identificación</th>
                                         <th scope="col">Sede</th>
+                                        <th scope="col">Tipo</th>
                                         <th scope="col">Configuracion</th>
                                     </tr>
                                 </thead>
@@ -51,6 +52,7 @@
                                             <td>{{ $user->nombre }} {{ $user->apellido}} </td>
                                             <td>  {{ $user->identificacion }}  </td>
                                             <td>  {{ App\Models\Sede::find($user->sedes_id)->nombre }}  </td>
+                                            <td> {{ $user->getRoleNames()[0] ?? "Sin tipo" }} </td>
                                             <td>
                                                 <span>
                                                     <a href="javascript:EditarUser({{ $user->id }})" class="mr-4" data-toggle="tooltip" data-placement="top" title="Edit">

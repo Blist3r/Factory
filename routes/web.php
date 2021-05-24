@@ -45,6 +45,13 @@ Route::middleware(['auth'])->group(function () {
         // Roles
         Route::get('/configuracion/roles', [App\Http\Controllers\ConfiguracionController::class, 'roles'])->name('roles');
         Route::post('/configuracion/roles/create', [App\Http\Controllers\ConfiguracionController::class, 'roles_create'])->name('roles.create');
+        Route::post('/configuracion/roles/show', [App\Http\Controllers\ConfiguracionController::class, 'roles_show'])->name('roles.show');
+        Route::get('/configuracion/roles/delete/{id}', [App\Http\Controllers\ConfiguracionController::class, 'roles_delete'])->name('roles.delete');
+        // Permisos
+        Route::get('/configuracion/permisos', [App\Http\Controllers\ConfiguracionController::class, 'permisos'])->name('permisos');
+        Route::post('/configuracion/permisos/create', [App\Http\Controllers\ConfiguracionController::class, 'permisos_create'])->name('permisos.create');
+        Route::post('/configuracion/permisos/show', [App\Http\Controllers\ConfiguracionController::class, 'permisos_show'])->name('permisos.show');
+        Route::get('/configuracion/permisos/delete/{id}', [App\Http\Controllers\ConfiguracionController::class, 'permisos_delete'])->name('permisos.delete');
         //Categorias
         Route::get('/configuracion/categorias', [App\Http\Controllers\ConfiguracionController::class, 'index_categorias'])->name('categorias');
         Route::post('/configuracion/categorias/create', [App\Http\Controllers\ConfiguracionController::class, 'create_categorias'])->name('categorias.create');

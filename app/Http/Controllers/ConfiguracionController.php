@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Sede;
 use App\Models\Categoria;
 use \Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class ConfiguracionController extends Controller
 {
@@ -125,6 +126,8 @@ class ConfiguracionController extends Controller
         }
     }
 
+    //----------------------------------------------------------------------------------------------------------------------------------
+
     public function roles() {
         $roles = Role::orderBy('name', 'ASC')->get();
 
@@ -132,6 +135,22 @@ class ConfiguracionController extends Controller
     }
 
     public function roles_create(Request $request) {
+
+        if($request['id']){
+            $rol = Role::find($request['id']);
+
+        // Se actualiza el rol con lo que se le pidido que modificara en este caso el nombre.
+            $rol->update([
+                'name' => $request['name']
+            ]);
+        // Se redirecciona a la misma pagina con un mensaje el cual diga si se se actualizo correctamente o no.
+            if ($rol->save()) {
+                return redirect()->back()->with(['create' => 1, 'mensaje' => 'El rol actualizada correctamente']);
+            } else {
+                return redirect()->back()->with(['create' => 0, 'mensaje' => 'El rol no se actualizo correctamente']);
+            }
+        }
+
         $rol = Role::create(['name' => $request['name']]);
 
         if ($rol->save()) {
@@ -139,8 +158,76 @@ class ConfiguracionController extends Controller
         } else {
             return redirect()->back()->with(['create' => 0, 'mensaje' => 'El rol NO se creo correctamente']);
         }
+        
     }
 
+    //Se traen los datos con ajax para editar
+    public function roles_show(Request $request) {
+        return Role::find($request['id']);
+    }
 
+    //Al momento de eliminar, se busca a la sede por id y se da la propiedad delete para borrarla
+    public function roles_delete(Request $request) {
+        $rol = Role::find($request['id']);
+
+        // Se redirecciona a la misma pagina con un mensaje el cual diga si se se elimino correctamente o no.
+        if ($rol->delete()) {
+            return redirect()->back()->with(['create' => 1, 'mensaje' => 'Rol eliminado correctamente']);
+        } else {
+            return redirect()->back()->with(['create' => 0, 'mensaje' => 'El rol no se eliminó correctamente']);
+        }
+    }
+
+    //---------------------------------------------------------------------------------------------------------------------------------
+
+    public function permisos() {
+        $permisos = Permission::orderBy('name', 'ASC')->get();
+
+        return view('configuracion.permisos', ['permisos' => $permisos]);
+    }
+
+    public function permisos_create(Request $request) {
+
+        if($request['id']){
+            $permisos = Permission::find($request['id']);
+
+        // Se actualiza el permisos con lo que se le pidido que modificara en este caso el nombre.
+            $permisos->update([
+                'name' => $request['name']
+            ]);
+        // Se redirecciona a la misma pagina con un mensaje el cual diga si se se actualizo correctamente o no.
+            if ($permisos->save()) {
+                return redirect()->back()->with(['create' => 1, 'mensaje' => 'El permiso actualizada correctamente']);
+            } else {
+                return redirect()->back()->with(['create' => 0, 'mensaje' => 'El permiso no se actualizo correctamente']);
+            }
+        }
+
+        $permisos = Permission::create(['name' => $request['name']]);
+
+        if ($permisos->save()) {
+            return redirect()->back()->with(['create' => 1, 'mensaje' => 'El permiso se creo correctamente']);
+        } else {
+            return redirect()->back()->with(['create' => 0, 'mensaje' => 'El permiso NO se creo correctamente']);
+        }
+        
+    }
+
+    //Se traen los datos con ajax para editar
+    public function permisos_show(Request $request) {
+        return Permission::find($request['id']);
+    }
+
+    //Al momento de eliminar, se busca a la sede por id y se da la propiedad delete para borrarla
+    public function permisos_delete(Request $request) {
+        $permisos = Permission::find($request['id']);
+
+        // Se redirecciona a la misma pagina con un mensaje el cual diga si se se elimino correctamente o no.
+        if ($permisos->delete()) {
+            return redirect()->back()->with(['create' => 1, 'mensaje' => 'El Permiso eliminado correctamente']);
+        } else {
+            return redirect()->back()->with(['create' => 0, 'mensaje' => 'El permiso no se eliminó correctamente']);
+        }
+    }
 
 }
