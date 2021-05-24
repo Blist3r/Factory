@@ -37,3 +37,13 @@ function LimpiarInput() {
     $('#nombre').val('');
     $('#id').val('');
 }
+
+
+function showpermisos(rol){
+    if (rol != 'admin') {
+        $('#SectionPermisos').removeClass('d-none');
+        
+    }else{
+        $('#SectionPermisos').addClass('d-none');
+    }
+}

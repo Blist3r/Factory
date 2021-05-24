@@ -62,11 +62,18 @@ class UsersController extends Controller
 
             // Eliminar todos los roles existentes
             $user->roles()->detach();
+
+            // Sincroniza los permisos del usuario
+            $user->syncPermissions();
+
             // Forzar el cache de permisos
             $user-> forgetCachedPermissions();
-
+            
             // Agregar el nuevo rol
             $user->assignRole($request['rol']);
+            if ($request->rol != 'admin') {
+                $user->givePermissionTo($request->permiso);
+            }
 
             //Se pone una condicion para saber si el usuario fue actualizado correctamente o no.
             if ($user->save()) {
@@ -96,6 +103,9 @@ class UsersController extends Controller
         if ($user->save()) {
             // Agregar el nuevo rol
             $user->assignRole($request['rol']);
+            if ($request->rol != 'admin') {
+                $user->givePermissionTo($request->permiso);
+            }
 
             return redirect()->back()->with(['create' => 1, 'mensaje' => 'El usuario fue creado correctamente']);
         } else {

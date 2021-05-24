@@ -52,7 +52,7 @@
                                             <td>{{ $user->nombre }} {{ $user->apellido}} </td>
                                             <td>  {{ $user->identificacion }}  </td>
                                             <td>  {{ App\Models\Sede::find($user->sedes_id)->nombre }}  </td>
-                                            <td> {{ $user->getRoleNames()[0] ?? "Sin tipo" }} </td>
+                                            <td> {{ $user->getRoleNames()[0] ?? "Sin tipo" }} <br> {{ $user->getRoleNames()[0] == 'General' ? $user->getAllPermissions()[0]->name: ""}}</td>
                                             <td>
                                                 <span>
                                                     <a href="javascript:EditarUser({{ $user->id }})" class="mr-4" data-toggle="tooltip" data-placement="top" title="Edit">
@@ -128,11 +128,23 @@
                     <div class="form-row mt-3">
                         <label>Tipo</label>
 
-                        <select name="rol" id="rol" class="form-control" required>
+                        <select name="rol" id="rol" class="form-control" required onchange="showpermisos(this.value)">
                             <option value="">Seleccione el tipo</option>
                             <!-- Se crea un foreaach, para que busque las sedes que hay en la base de datos y se les da un orden -->
                             @foreach (\Spatie\Permission\Models\Role::orderBy('name', 'ASC')->get() as $tipo)
                                 <option value="{{ $tipo->name }}">{{ $tipo->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <!-- Se pone en class 'd-none' para que oculte de manera condicional esta sección-->
+                    <div class="form-row mt-3 d-none" id="SectionPermisos" >
+                        <label>Permisos</label>
+
+                        <select name="permiso" id="permiso" class="form-control" required onchange="showpermisos(this.value)">
+                            <option value="">Seleccione el permiso</option>
+                            <!-- Se crea un foreaach, para que busque las sedes que hay en la base de datos y se les da un orden -->
+                            @foreach (\Spatie\Permission\Models\Permission::orderBy('name', 'ASC')->get() as $permiso)
+                                <option value="{{ $permiso->name }}">{{ $permiso->name }}</option>
                             @endforeach
                         </select>
                     </div>
