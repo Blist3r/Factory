@@ -53,7 +53,7 @@
                                         <td> <div class="d-flex align-items-center"><img src=" {{ asset('storage/'.$producto->imagen) }} " class="rounded-lg mr-2" width="80" alt=""></div>  </td>
                                         <td> {{ $producto->nombre }} </td>
                                         <td> {{ $producto->descripcion }} </td>
-                                        <td> {{ $producto->valor }} </td>
+                                        <td> ${{ number_format($producto->valor) }} </td>
                                         <td>  {{ App\Models\Categoria::find($producto->categorias_id)->nombre }}  </td>
 
                                             <td>

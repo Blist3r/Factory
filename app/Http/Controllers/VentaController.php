@@ -33,6 +33,7 @@ class VentaController extends Controller
         return $productos;
     }
 
+    
     public function searchCliente(Request $request) {
         return Cliente::where('identificacion', $request['id'])->first();
     }
@@ -54,6 +55,23 @@ class VentaController extends Controller
         $vendedor = User::where("identificacion", $request['identificacion_vendedor'])->first();
         $cliente  = Cliente::where("identificacion", $request['identificacion_cliente'])->first();
         $total = 0;
+
+        //Si el cliente no se creó, procede a crearlo con la información brindada en el modal
+        if (!$cliente) {
+            $cliente = Cliente::create([
+                //Se pasan los datos que llegaron del modal por el '$request'
+                'nombre' => $request['nombre_cliente'],
+                'apellido' => '',
+                'correo' => '',
+                'identificacion' => $request['identificacion_cliente'],
+                'direccion' => $request['direccion_cliente']?? '',
+                'telefono' => $request['telefono_cliente']?? '',
+            ]);
+            //Y si no se guardo, devuelva error. Siendo error return 0.
+            if (!$cliente->save()) {
+                return 0;
+            }
+        }
 
         // Iniciar transaccion
         DB::beginTransaction(); // -- Punto de partida

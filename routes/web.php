@@ -66,8 +66,10 @@ Route::middleware(['auth'])->group(function () {
         // Rutas de Reportes
         // Ventas
         Route::prefix('reportes')->group(function () {
-            Route::get('/ventas', [App\Http\Controllers\ReportesController::class, 'ventas'])->name('ventas');
+            Route::get('ventas', [App\Http\Controllers\ReportesController::class, 'ventas'])->name('ventas');
+            Route::post('buscar_ventas', [App\Http\Controllers\ReportesController::class, 'buscar_ventas'])->name('buscar_ventas');
         });
+        
     });
 
     //Clientes

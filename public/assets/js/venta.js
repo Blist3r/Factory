@@ -256,7 +256,10 @@ function ValidarVenta() {
     let productos = $("#formDetalleVenta").serialize();
 
     let data = productos+
+               "&nombre_cliente="+nombre_cliente+
                "&identificacion_cliente="+identificacion_cliente+
+               "&telefono_cliente="+telefono_cliente+
+               "&direccion_cliente="+direccion_cliente+
                "&identificacion_vendedor="+identificacion_vendedor+
                "&domicilio="+domicilio+
                "&metdoPago="+metdoPago;
