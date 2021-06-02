@@ -11,6 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Ventas</h4>
+                        <button type="button" class="btn btn-success" data-toggle="url" data-target="exportar_ventas">Exportar Ventas</button> <!-- AAAAAA -->
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
