@@ -230,10 +230,13 @@ function ValidarVenta() {
         url: '/ventas/validarVendedor',
         type: 'POST',
         data: {identificacion_vendedor:identificacion_vendedor, password_vendedor:password_vendedor},
+        async: false,
         success: function (data) {
             if(data != 1){
                 alert("Usuario o contraseña incorrectos");
                 usuario = 0;
+
+            
             }
         },
         error(e) {
@@ -241,7 +244,7 @@ function ValidarVenta() {
         }
     });
 
-    if(usuario && usuario == 0){
+    if(usuario == 0){
         return;
     }
 

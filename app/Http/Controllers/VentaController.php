@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\VentaExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -13,6 +15,7 @@ use App\Models\Detallesventa;
 use App\Models\User;
 use App\Models\Venta;
 use App\Models\Sede;
+
 
 class VentaController extends Controller
 {
@@ -121,5 +124,11 @@ class VentaController extends Controller
             'sucursal' => $sucursal
         ];
     }
+
+    public function exportar_ventas() 
+    {
+        return Excel::download(new VentaExport, 'Ventas.xlsx');
+    }
+
 
 }

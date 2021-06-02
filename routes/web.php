@@ -68,6 +68,7 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('reportes')->group(function () {
             Route::get('ventas', [App\Http\Controllers\ReportesController::class, 'ventas'])->name('ventas');
             Route::post('buscar_ventas', [App\Http\Controllers\ReportesController::class, 'buscar_ventas'])->name('buscar_ventas');
+            Route::get('exportar_ventas', [App\Http\Controllers\VentaController::class, 'exportar_ventas'])->name('exportar_ventas');
         });
         
     });
