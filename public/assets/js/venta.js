@@ -236,7 +236,7 @@ function ValidarVenta() {
                 alert("Usuario o contraseña incorrectos");
                 usuario = 0;
 
-            
+
             }
         },
         error(e) {
@@ -302,6 +302,7 @@ function ValidarVenta() {
 }
 
 function print_ticket(data) {
+    console.log(data);
     $.ajax({
         url : "http://localhost/api_factory/ticket.php",
         type : "GET",

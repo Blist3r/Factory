@@ -36,7 +36,7 @@ class VentaController extends Controller
         return $productos;
     }
 
-    
+
     public function searchCliente(Request $request) {
         return Cliente::where('identificacion', $request['id'])->first();
     }
@@ -82,6 +82,7 @@ class VentaController extends Controller
         $venta = Venta::create([
             'fecha' => date('Y-m-d'),
             'total' => 0,
+            'domicilio' => $request['domicilio'] ?? NULL,
             'sedes_id' => $vendedor->sedes_id,
             'users_id' => $vendedor->id,
             'clientes_id' => $cliente->id
@@ -125,7 +126,7 @@ class VentaController extends Controller
         ];
     }
 
-    public function exportar_ventas() 
+    public function exportar_ventas()
     {
         return Excel::download(new VentaExport, 'Ventas.xlsx');
     }

@@ -12,6 +12,7 @@ class Venta extends Model
     protected $fillable = [
         'fecha',
         'total',
+        'domicilio',
         'sedes_id',
         'users_id',
         'clientes_id'

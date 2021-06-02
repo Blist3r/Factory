@@ -17,6 +17,7 @@ class CreateVentasTable extends Migration
             $table->id();
             $table->date('fecha');
             $table->integer('total');
+            $table->integer('domicilio');
 
             #Relaciones
             $table->foreignId('sedes_id')
