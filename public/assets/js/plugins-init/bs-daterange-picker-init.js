@@ -1,8 +1,12 @@
 (function($) {
     "use strict"
 
+    var date = moment();
+
     // Daterange picker
     $('.input-daterange-datepicker').daterangepicker({
+        startDate: date,
+        format: 'YYYY-MM-DD',
         buttonClasses: ['btn', 'btn-sm'],
         applyClass: 'btn-danger',
         cancelClass: 'btn-inverse'
@@ -19,8 +23,8 @@
     });
     $('.input-limit-datepicker').daterangepicker({
         format: 'MM/DD/YYYY',
-        minDate: '06/01/2015',
-        maxDate: '06/30/2015',
+        minDate: date,
+        maxDate: date,
         buttonClasses: ['btn', 'btn-sm'],
         applyClass: 'btn-danger',
         cancelClass: 'btn-inverse',
