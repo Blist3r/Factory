@@ -130,9 +130,17 @@ class VentaController extends Controller
         ];
     }
 
-    public function exportar_ventas()
+    public function exportar_ventas(Request $request)
     {
-        return Excel::download(new VentaExport, 'Ventas.xlsx');
+        $fecha1 = substr($request->rango_fechas, 0, 10);
+        $fecha2 = substr($request->rango_fechas, 13);
+
+        $fecha = date_create($fecha1);
+        $fecha1 = date_format($fecha, "Y-m-d");
+        $fecha = date_create($fecha2);
+        $fecha2 = date_format($fecha, "Y-m-d");
+
+        return (new VentaExport)->rango($fecha1, $fecha2)->download('Ventas.xlsx');
     }
 
 

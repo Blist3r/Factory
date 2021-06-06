@@ -1,6 +1,19 @@
 @extends('layouts.app')
 
-@section('mySripts') <script src="{{ asset('assets/js/reporteventas.js') }}"></script> @endsection
+@section('myStyles')
+    <link href="{{ asset('assets/vendor/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/pickadate/themes/default.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/pickadate/themes/default.date.css') }}">
+@endsection
+
+@section('mySripts')
+    <script src="{{ asset('assets/js/reporteventas.js') }}"></script>
+
+    {{-- DatePicker --}}
+    <script src="{{ asset('assets/vendor/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins-init/bs-daterange-picker-init.js') }}"></script>
+@endsection
 
 @section('content')
 
@@ -11,7 +24,19 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Ventas</h4>
-                        <button type="button" class="btn btn-success" data-toggle="url" data-target="exportar_ventas">Exportar Ventas</button> <!-- AAAAAA -->
+
+                        <form action="{{ route('exportar_ventas') }}" method="post" class="w-100" style="display: contents;">
+                            @csrf
+
+                            <div class="col-xl-4 mb-3">
+                                <div class="example">
+                                    <input class="form-control input-daterange-datepicker" type="text" name="rango_fechas" id="rango_fechas">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-success">Exportar Ventas</button>
+                        </form>
+
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -59,7 +84,7 @@
                                             <td> {{ App\Models\Cliente::find($venta->clientes_id)->nombre }} </td>
                                             <td> {{ $venta->metodo_pago}} </td>
                                             <td> {{ number_format($venta->total)}} </td>
-                                            <td class="text-center"> 
+                                            <td class="text-center">
                                                 <span>
                                                     <a href="javascript:MostrarVenta({{ $venta->id }})" data-toggle="tooltip" data-placement="top" title="Edit">
                                                         <i class="fa fa-eye color-muted"></i>
@@ -88,7 +113,7 @@
                 </button>
             </div>
             <div class="modal-body" id="contentModalDetalle">
-            
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger light" data-dismiss="modal">Cerrar</button>
