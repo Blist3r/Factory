@@ -43,6 +43,7 @@
                                         <th scope="col">Sede</th>
                                         <th scope="col">Vendedor</th>
                                         <th scope="col">Cliente</th>
+                                        <th scope="col">Metodo de Pago</th>
                                         <th scope="col">Total</th>
                                         <th scope="col" class="text-center"> <span>  <i class="fa fa-cog"></i> </span> </th>
                                     </tr>
@@ -56,6 +57,7 @@
                                             <td> {{ App\Models\Sede::find($venta->sedes_id)->nombre }} </td>
                                             <td> {{ App\Models\User::find($venta->users_id)->nombre }} {{ App\Models\User::find($venta->users_id)->apellido }}</td>
                                             <td> {{ App\Models\Cliente::find($venta->clientes_id)->nombre }} </td>
+                                            <td> {{ $venta->metodo_pago}} </td>
                                             <td> {{ number_format($venta->total)}} </td>
                                             <td class="text-center"> 
                                                 <span>

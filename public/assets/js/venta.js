@@ -265,7 +265,7 @@ function ValidarVenta() {
                "&direccion_cliente="+direccion_cliente+
                "&identificacion_vendedor="+identificacion_vendedor+
                "&domicilio="+domicilio+
-               "&metdoPago="+metdoPago;
+               "&metodo_pago="+metdoPago;
 
     $.ajax({
         url: '/ventas/realizarVenta',

@@ -15,7 +15,8 @@ class Venta extends Model
         'domicilio',
         'sedes_id',
         'users_id',
-        'clientes_id'
+        'clientes_id',
+        'metodo_pago'
     ];
 
     public function productos()
