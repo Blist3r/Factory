@@ -24,21 +24,23 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Ventas</h4>
-
-                        <form action="{{ route('exportar_ventas') }}" method="post" class="w-100" style="display: contents;">
-                            @csrf
-
-                            <div class="col-xl-4 mb-3">
-                                <div class="example">
-                                    <input class="form-control input-daterange-datepicker" type="text" name="rango_fechas" id="rango_fechas">
-                                </div>
-                            </div>
-
-                            <button type="submit" class="btn btn-success">Exportar Ventas</button>
-                        </form>
-
                     </div>
                     <div class="card-body">
+
+                        <div class="row d-flex">
+                            <form action="{{ route('exportar_ventas') }}" method="post" class="w-100" style="display: contents;">
+                                @csrf
+
+                                <div class="col-xl-4 mb-3">
+                                    <div class="example">
+                                        <input class="form-control input-daterange-datepicker" type="text" name="rango_fechas" id="rango_fechas">
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-success">Exportar Ventas</button>
+                            </form>
+                        </div>
+
                         <div class="table-responsive">
 
                             @if (session()->has('create'))

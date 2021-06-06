@@ -30,7 +30,6 @@ class VentaExport implements FromView, WithTitle, ShouldAutoSize
 
     public function view(): View
     {
-        dd(Venta::whereBetween('fecha', [$this->fecha1, $this->fecha2])->get());
         return view('exports.ventas', [
             'ventas' => Venta::whereBetween('fecha', [$this->fecha1, $this->fecha2])->get()
         ]);

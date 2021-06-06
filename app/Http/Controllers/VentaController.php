@@ -89,7 +89,7 @@ class VentaController extends Controller
             'clientes_id' => $cliente->id
         ]);
 
-        
+
 
         if($venta->save()){
             foreach ($request['productos'] as $key => $producto) {
@@ -126,7 +126,7 @@ class VentaController extends Controller
             'cliente' => $cliente,
             'total' => $total,
             'sucursal' => $sucursal
-            
+
         ];
     }
 
