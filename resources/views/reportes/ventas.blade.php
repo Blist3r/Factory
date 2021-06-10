@@ -36,8 +36,18 @@
                                         <input class="form-control input-daterange-datepicker" type="text" name="rango_fechas" id="rango_fechas">
                                     </div>
                                 </div>
+                                <div>
+                                    <select name="sedes_id" id="sedes_id" class="form-control">
+                                        <option>Seleccione la sede</option>
 
-                                <button type="submit" class="btn btn-success">Exportar Ventas</button>
+                                        <!-- @foreach ($sedes as $sede)
+                                            <option value="{{ $sede->id }}">{{ $sede->nombre }}</option>
+                                        @endforeach-->
+                                    </select>
+                               </div>
+                               <div>
+                                    <button type="submit" class="btn btn-success">Exportar Ventas</button>
+                                </div>
                             </form>
                         </div>
 
