@@ -7,7 +7,7 @@ $.ajaxSetup({
 $(document).ready(function () {
 
 });
-
+// Se hace una peticion ajax para que muestre en la seccion de "ventas" cuantas ventas se hicieron y con sus elementos.
 function MostrarVenta(id) {
     $.ajax({
         url: '/reportes/buscar_ventas',

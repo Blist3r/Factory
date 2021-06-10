@@ -15,6 +15,7 @@
     </tr>
     </thead>
     <tbody>
+        {{-- Se ponen los datos que se piensa recibir como base 0 --}}
         @php
             $total = 0;
             $efectivo = 0;
@@ -22,6 +23,7 @@
             $domicilio = 0;
             $domicilio_total = 0;
         @endphp
+        {{-- Se realiza un foreach para que ponga los datos que tenga en el arreglo de venta y imprima esos mismos datos dentro de tablas del excel --}}
         @foreach($ventas as $venta)
             <tr>
                 <td> {{ App\Models\User::find($venta->users_id)->nombre }} {{ App\Models\User::find($venta->users_id)->apellido }}</td>
@@ -32,6 +34,7 @@
                 <td>{{ $venta->domicilio == 0 ? 'No' : 'Si' }}</td>
                 <td>{{ $venta->total }}</td>
             </tr>
+            {{-- Se realiza los totales y se le agregan condiciones para validar y diferenciar el tipo de pago. Ademas saber si la venta fue domicilio y cuanto se vendio de domcilio --}}
             @php
                 $total = $total + $venta->total;
 
