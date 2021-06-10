@@ -20,7 +20,7 @@ use App\Models\Sede;
 class VentaController extends Controller
 {
 
-    
+
 
     public function index() {
         $categorias = Categoria::all();
@@ -61,8 +61,8 @@ class VentaController extends Controller
         $vendedor = User::where("identificacion", $request['identificacion_vendedor'])->first();
         $cliente  = Cliente::where("identificacion", $request['identificacion_cliente'])->first();
         $total = 0;
-        
-        
+
+
 
         //Si el cliente no se creó, procede a crearlo con la información brindada en el modal
         if (!$cliente) {
@@ -79,6 +79,15 @@ class VentaController extends Controller
             if (!$cliente->save()) {
                 return 0;
             }
+        }else{
+            $cliente->update([
+                'nombre' => $request['nombre_cliente'],
+                'apellido' => '',
+                'correo' => '',
+                'identificacion' => $request['identificacion_cliente'],
+                'direccion' => $request['direccion_cliente']?? '',
+                'telefono' => $request['telefono_cliente']?? '',
+            ]);
         }
 
         // Iniciar transaccion

@@ -28,7 +28,7 @@
                                                         <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
                                                     @endforeach
                                                 </select>
-                                            </div>  
+                                            </div>
                                              <!-- Se crea una funcion y se pone "false" la anterior para que salte esa funcion y valide la segunda -->
                                             <div class="col-sm-6 mt-2 mt-sm-0">
                                                 <input type="text" class="form-control" placeholder="Busque un producto" onkeyup="cargarProductos(categoria=false, q=this.value)">
@@ -140,7 +140,6 @@
                                 <option value="">Seleccione el metodo de pago</option>
                                 <option value="Efectivo">Efectivo</option>
                                 <option value="Tarjeta">Tarjeta</option>
-                                <option value="Pago en linea">Pago en linea</option>
                             </select>
                             <div class="custom-control custom-checkbox mb-3 mt-2 text-right">
                                 <input type="checkbox" class="custom-control-input" id="domicilio" value="1">
