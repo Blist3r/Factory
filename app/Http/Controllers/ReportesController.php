@@ -10,14 +10,16 @@ class ReportesController extends Controller
 {
     public function ventas(Request $request) {
         // Consltar ventas
-        $ventas = Venta::all();
+        $ventas = new Venta;
         // Consultar sedes
         $sedes = Sede::all();
 
         // Recibimos los filtros
         if ($request['sede']) {
-            $ventas->where('sedes_id', $request['sede']);
+            $ventas = $ventas->where('sedes_id', $request['sede']);
         }
+
+        $ventas = $ventas->get();
 
         return view('reportes.ventas', ['ventas' => $ventas, 'sedes' => $sedes]);
     }

@@ -2,14 +2,12 @@
 
 namespace App\Exports;
 
-use App\Models\Venta;
-use Illuminate\Contracts\View\View;
-use Maatwebsite\Excel\Concerns\FromView;
-use Maatwebsite\Excel\Concerns\WithTitle;
+use App\Exports\VentaExportHoja;
+use App\Models\Sede;
 use Maatwebsite\Excel\Concerns\Exportable;
-use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
-class VentaExport implements FromView, WithTitle, ShouldAutoSize
+class VentaExport implements WithMultipleSheets
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -28,14 +26,19 @@ class VentaExport implements FromView, WithTitle, ShouldAutoSize
         return $this;
     }
 
-    public function view(): View
+    public function sheets(): array
     {
-        return view('exports.ventas', [
-            'ventas' => Venta::whereBetween('fecha', [$this->fecha1, $this->fecha2])->get()
-        ]);
+
+        $sheets=[];
+
+        foreach (Sede::all() as $sede) {
+
+            $sheets[]= new VentaExportHoja($this->fecha1, $this->fecha2, $sede->id, $sede->nombre);
+
+        }
+
+        return $sheets;
+
     }
 
-    public function title(): string {
-        return 'Reporte de Ventas';
-    }
 }

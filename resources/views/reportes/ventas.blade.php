@@ -39,7 +39,7 @@
 
                                 <div class="col-xl-4 mb-3">
                                     <select name="sedes_id" id="sedes_id" class="form-control" onchange="filtrarPorSede(this.value)">
-                                        <option>Seleccione la sede</option>
+                                        <option value="">Seleccione la sede</option>
 
                                         @foreach ($sedes as $sede)
                                             @php $selected = \Request::get('sede') == $sede->id ? 'selected' : ''; @endphp
