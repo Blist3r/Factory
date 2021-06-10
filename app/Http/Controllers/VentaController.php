@@ -19,6 +19,9 @@ use App\Models\Sede;
 
 class VentaController extends Controller
 {
+
+    
+
     public function index() {
         $categorias = Categoria::all();
         $productos = Producto::paginate(12);
@@ -58,6 +61,8 @@ class VentaController extends Controller
         $vendedor = User::where("identificacion", $request['identificacion_vendedor'])->first();
         $cliente  = Cliente::where("identificacion", $request['identificacion_cliente'])->first();
         $total = 0;
+        
+        
 
         //Si el cliente no se creó, procede a crearlo con la información brindada en el modal
         if (!$cliente) {
