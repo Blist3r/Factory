@@ -36,13 +36,15 @@
                                         <input class="form-control input-daterange-datepicker" type="text" name="rango_fechas" id="rango_fechas">
                                     </div>
                                 </div>
-                                <div>
-                                    <select name="sedes_id" id="sedes_id" class="form-control">
+
+                                <div class="col-xl-4 mb-3">
+                                    <select name="sedes_id" id="sedes_id" class="form-control" onchange="filtrarPorSede(this.value)">
                                         <option>Seleccione la sede</option>
 
-                                        <!-- @foreach ($sedes as $sede)
-                                            <option value="{{ $sede->id }}">{{ $sede->nombre }}</option>
-                                        @endforeach-->
+                                        @foreach ($sedes as $sede)
+                                            @php $selected = \Request::get('sede') == $sede->id ? 'selected' : ''; @endphp
+                                            <option value="{{ $sede->id }}" {{ $selected }}>{{ $sede->nombre }}</option>
+                                        @endforeach
                                     </select>
                                </div>
                                <div>

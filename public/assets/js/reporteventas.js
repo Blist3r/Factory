@@ -5,7 +5,7 @@ $.ajaxSetup({
 });
 
 $(document).ready(function () {
-  
+
 });
 
 function MostrarVenta(id) {
@@ -19,21 +19,21 @@ function MostrarVenta(id) {
             data.productos.forEach(element => {
                 htmlDetalleVenta += `
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>   
+                    <div>
                             <div> <img src="/storage/${element.producto.imagen}" class="rounded-lg mr-2" width="150" alt=""></div>
                             <div>
                                 <h3 class="my-0">${element.producto.nombre}</h3>
                                 <h5 class="text-muted">Cantidad: ${element.cantidad}</h5>
                             </div>
                     </div>
-                        
+
                         <h2>
                         <span class="text-muted">Valor: $${element.producto.valor}</span>
                         </h2>
-                        
-                    </li>   
-                    
-                    
+
+                    </li>
+
+
                 `;
             });
             htmlDetalleVenta += '</ul>';
@@ -46,3 +46,6 @@ function MostrarVenta(id) {
     });
 }
 
+function filtrarPorSede(sede) {
+    window.location.href = '/reportes/ventas/filtro?sede='+sede;
+}
