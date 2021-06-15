@@ -100,8 +100,11 @@
                                             <td> {{ number_format($venta->total)}} </td>
                                             <td class="text-center">
                                                 <span>
-                                                    <a href="javascript:MostrarVenta({{ $venta->id }})" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    <a href="javascript:MostrarVenta({{ $venta->id }})" data-toggle="tooltip" data-placement="top" title="Descripcion de Venta">
                                                         <i class="fa fa-eye color-muted"></i>
+                                                    </a>
+                                                    <a href="javascript:Imprimir({{ $venta->id }})" data-toggle="tooltip" data-placement="top" title="Imprimir" class="ml-2">
+                                                        <i class="fa fa-print"></i>
                                                     </a>
                                                 </span>
                                             </td>

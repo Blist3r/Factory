@@ -49,3 +49,31 @@ function MostrarVenta(id) {
 function filtrarPorSede(sede) {
     window.location.href = '/reportes/ventas/filtro?sede='+sede;
 }
+
+function print_ticket(data) {
+    console.log(data);
+    $.ajax({
+        url : "http://localhost/api_factory/ticket.php",
+        type : "GET",
+        data: data,
+        dataType : 'json',
+        success : function(data){
+            console.log(data);
+        }
+    });
+}
+
+function Imprimir(id) {
+    $.ajax({
+        url : "imprimir_ventas",
+        type : "POST",
+        data: {id:id},
+        dataType : 'json',
+        success : function(data){
+            print_ticket(data)
+        },
+        error(e) {
+            console.log(e);
+        }
+    });
+}

@@ -142,6 +142,7 @@ class VentaController extends Controller
             'sucursal' => $sucursal
 
         ];
+
     }
 
     public function exportar_ventas(Request $request)
@@ -157,5 +158,24 @@ class VentaController extends Controller
         return (new VentaExport)->rango($fecha1, $fecha2)->download('Ventas.xlsx');
     }
 
+    public function imprimir_ventas(Request $request){
+
+        $venta = Venta::find($request->id);
+        $vendedor = User::find($venta->users_id);
+        $cliente = Cliente::find($venta->clientes_id);
+        $total = $venta->total;
+        $sucursal = Sede::find($venta->sedes_id);
+
+
+        return [
+            'venta' => $venta,
+            'vendedor' => $vendedor,
+            'cliente' => $cliente,
+            'total' => $total,
+            'sucursal' => $sucursal
+
+        ];
+
+    }
 
 }
