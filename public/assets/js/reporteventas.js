@@ -51,8 +51,7 @@ function filtrarPorSede(sede) {
 }
 
 function cierre(){
-    $('#rango_fechas').val(rango_fechas);
-    $('#sedes_id').val(sedes);
+
 }
 
 function print_ticket(data) {
