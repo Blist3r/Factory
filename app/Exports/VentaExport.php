@@ -33,7 +33,7 @@ class VentaExport implements WithMultipleSheets
 
         foreach (Sede::all() as $sede) {
 
-            $sheets[]= new VentaExportHoja($this->fecha1, $this->fecha2, $sede->id, $sede->nombre);
+            $sheets[] = new VentaExportHoja($this->fecha1, $this->fecha2, $sede->id, $sede->nombre);
 
         }
 
