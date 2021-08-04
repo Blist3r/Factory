@@ -74,4 +74,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/ventas/searchCliente', [App\Http\Controllers\VentaController::class, 'searchCliente'])->name('ventas.searchCliente');
     Route::post('/ventas/validarVendedor', [App\Http\Controllers\VentaController::class, 'validarVendedor'])->name('ventas.validarVendedor');
     Route::post('/ventas/realizarVenta', [App\Http\Controllers\VentaController::class, 'realizarVenta'])->name('ventas.realizarVenta');
+
+    //Logout
+    Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 });
