@@ -50,12 +50,27 @@ function filtrarPorSede(sede) {
     window.location.href = '/reportes/ventas/filtro?sede='+sede;
 }
 
-function cierre(){
+function cierre() {
+    let sucursal = $('#sedes_id').val();
 
+    if(!sucursal) {
+        alert('La Sede es requerida');
+
+        return false;
+    }
+
+    $.ajax({
+        url : "/reportes/print_cierre",
+        type : "POST",
+        data: {sucursal},
+        dataType : 'json',
+        success : function(data){
+            console.log(data);
+        }
+    });
 }
 
 function print_ticket(data) {
-    console.log(data);
     $.ajax({
         url : "http://localhost/api_factory/ticket.php",
         type : "GET",

@@ -58,6 +58,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('buscar_ventas', [App\Http\Controllers\ReportesController::class, 'buscar_ventas'])->name('buscar_ventas');
             Route::post('exportar_ventas', [App\Http\Controllers\VentaController::class, 'exportar_ventas'])->name('exportar_ventas');
             Route::post('imprimir_ventas', [App\Http\Controllers\VentaController::class, 'imprimir_ventas'])->name('imprimir_ventas');
+            Route::post('print_cierre', [App\Http\Controllers\VentaController::class, 'print_cierre'])->name('print_cierre');
         });
 
     });

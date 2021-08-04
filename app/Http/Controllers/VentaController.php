@@ -179,4 +179,12 @@ class VentaController extends Controller
 
     }
 
+    public function print_cierre(Request $request) {
+        $ventas = Venta::with(['productos' => function ($query) {
+            $query->with('producto');
+        }])->where('sedes_id', $request['sucursal'])->where('fecha', date('Y-m-d'))->get();
+
+        return $ventas;
+    }
+
 }
