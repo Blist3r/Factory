@@ -50,6 +50,10 @@ function filtrarPorSede(sede) {
     window.location.href = '/reportes/ventas/filtro?sede='+sede;
 }
 
+function cierre(){
+
+}
+
 function print_ticket(data) {
     console.log(data);
     $.ajax({

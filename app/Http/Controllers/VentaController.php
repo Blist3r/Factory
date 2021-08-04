@@ -97,6 +97,7 @@ class VentaController extends Controller
             'fecha' => date('Y-m-d'),
             'total' => 0,
             'domicilio' => $request['domicilio'] ?? NULL,
+            'propina'=> $request['propina'] ?? 0,
             'metodo_pago' => $request['metodo_pago'],
             'sedes_id' => $vendedor->sedes_id,
             'users_id' => $vendedor->id,

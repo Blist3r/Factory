@@ -51,6 +51,9 @@
                                     <button type="submit" class="btn btn-success">Exportar Ventas</button>
                                 </div>
                             </form>
+                            <div class="ml-3">
+                                <button type="button" onclick="cierre()" class="btn btn-success">Cierre</button>
+                            </div>
                         </div>
 
                         <div class="table-responsive">
