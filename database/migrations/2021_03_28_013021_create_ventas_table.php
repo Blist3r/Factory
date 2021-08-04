@@ -18,7 +18,8 @@ class CreateVentasTable extends Migration
             $table->date('fecha');
             $table->integer('total');
             $table->integer('domicilio');
-            $table->string('metodo_pago'); 
+            $table->boolean('propina');
+            $table->string('metodo_pago');
 
             #Relaciones
             $table->foreignId('sedes_id')
