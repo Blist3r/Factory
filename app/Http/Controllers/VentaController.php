@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Categoria;
+use App\Models\Cierre;
 use App\Models\Producto;
 use App\Models\Cliente;
 use App\Models\Detallesventa;
@@ -184,7 +185,58 @@ class VentaController extends Controller
             $query->with('producto');
         }])->where('sedes_id', $request['sucursal'])->where('fecha', date('Y-m-d'))->get();
 
-        return $ventas;
+        $ventas_fisicas = [
+            'efectivo' =>
+            Venta::where('sedes_id', $request['sucursal'])->where('fecha', date('Y-m-d'))->where('domicilio', '0')->where('metodo_pago', 'Efectivo')->sum('total'),
+            'tarjeta' =>
+            Venta::where('sedes_id', $request['sucursal'])->where('fecha', date('Y-m-d'))->where('domicilio', '0')->where('metodo_pago', 'Tarjeta')->sum('total'),
+            'total' =>
+            Venta::where('sedes_id', $request['sucursal'])->where('fecha', date('Y-m-d'))->where('domicilio', '0')->sum('total')
+        ];
+
+        $ventas_domicilio = [
+            'efectivo' =>
+            Venta::where('sedes_id', $request['sucursal'])->where('fecha', date('Y-m-d'))->where('domicilio', '1')->where('metodo_pago', 'Efectivo')->sum('total'),
+            'tarjeta' =>
+            Venta::where('sedes_id', $request['sucursal'])->where('fecha', date('Y-m-d'))->where('domicilio', '1')->where('metodo_pago', 'Tarjeta')->sum('total'),
+            'total' =>
+            Venta::where('sedes_id', $request['sucursal'])->where('fecha', date('Y-m-d'))->where('domicilio', '1')->sum('total')
+        ];
+
+        $ventas_total = [
+            'efectivo' =>
+            Venta::where('sedes_id', $request['sucursal'])->where('fecha', date('Y-m-d'))->where('metodo_pago', 'Efectivo')->sum('total'),
+            'tarjeta' =>
+            Venta::where('sedes_id', $request['sucursal'])->where('fecha', date('Y-m-d'))->where('metodo_pago', 'Tarjeta')->sum('total'),
+            'total' =>
+            Venta::where('sedes_id', $request['sucursal'])->where('fecha', date('Y-m-d'))->sum('total')
+        ];
+
+        $fecha = date('Y-m-d H:i:s');
+
+        $ultimo_cierre = Cierre::whereRaw('DATE(fecha)', date('Y-m-d', strtotime('-1 day')))->orderBy('id', 'desc')->first();
+
+        Cierre::create([
+            'fecha' => $fecha,
+            'numero_ventas' => $ventas->count(),
+            'total' => $ventas_total['total'],
+            'users_id' => auth()->user()->id
+        ]);
+
+        return [
+            'sucursal' => Sede::find($request['sucursal'])['nombre'],
+            'ventas' => $ventas,
+            'ventas_fisicas' => $ventas_fisicas,
+            'ventas_domicilio' => $ventas_domicilio,
+            'ventas_total' => $ventas_total,
+            'total' => $ventas->count(),
+            'fecha' => $fecha,
+            'ultimo_cierre' => [
+                'fecha' => date('d/m/Y', strtotime($ultimo_cierre->fecha)),
+                'hora' => date('H:i:s', strtotime($ultimo_cierre->fecha)),
+                'numero_ventas' => $ultimo_cierre->numero_ventas
+            ]
+        ];
     }
 
 }
