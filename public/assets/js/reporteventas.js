@@ -64,17 +64,21 @@ function cierre() {
         type : "POST",
         data: {sucursal},
         dataType : 'json',
+        async: false,
         success : function(data){
-            $.ajax({
-                url : "http://localhost/api_factory/cierre.php",
-                type : "POST",
-                data: data,
-                dataType : 'json',
-                success : function(data){
-                    console.log(data);
-                },
-                error(e){console.log(e)}
-            });
+            if(data) {
+                $.ajax({
+                    url : "http://localhost/api_factory/cierre.php",
+                    type : "POST",
+                    data: data,
+                    async: false,
+                    dataType : 'json',
+                    success : function(data){
+                        console.log(data);
+                    },
+                    error(e){console.log(e)}
+                });
+            }
         }
     });
 }
