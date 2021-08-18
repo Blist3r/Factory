@@ -65,7 +65,16 @@ function cierre() {
         data: {sucursal},
         dataType : 'json',
         success : function(data){
-            console.log(data);
+            $.ajax({
+                url : "http://localhost/api_factory/cierre.php",
+                type : "POST",
+                data: data,
+                dataType : 'json',
+                success : function(data){
+                    console.log(data);
+                },
+                error(e){console.log(e)}
+            });
         }
     });
 }
