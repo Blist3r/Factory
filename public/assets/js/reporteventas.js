@@ -67,19 +67,23 @@ function cierre() {
         async: false,
         success : function(data){
             if(data) {
-                $.ajax({
-                    url : "http://localhost/api_factory/cierre.php",
-                    type : "POST",
-                    data: data,
-                    async: false,
-                    dataType : 'json',
-                    success : function(data){
-                        console.log(data);
-                    },
-                    error(e){console.log(e)}
-                });
+                print_cierre(data);
             }
         }
+    });
+}
+
+function print_cierre(data) {
+    $.ajax({
+        url : "http://localhost/api_factory/cierre.php",
+        type : "POST",
+        data: data,
+        async: false,
+        dataType : 'json',
+        success : function(data){
+            console.log(data);
+        },
+        error(e){console.log(e)}
     });
 }
 
