@@ -76,15 +76,16 @@ function cierre() {
 function print_cierre(data) {
     $.ajax({
         url : "http://localhost/api_factory/cierre.php",
-        type : "POST",
-        data: data,
-        async: false,
-        dataType : 'json',
-        success : function(data){
-            console.log(data);
-        },
-        error(e){console.log(e)}
-    });
+       type : "POST",
+      data: data,
+      async: false,
+     dataType : 'json',
+     headers: false,
+       success : function(data){
+           console.log(data);
+      },
+      error(e){console.log(e)}
+  });
 }
 
 function print_ticket(data) {
