@@ -142,11 +142,11 @@
                                 <option value="Tarjeta">Tarjeta</option>
                             </select>
                             <div class="custom-control custom-checkbox mb-3 mt-2 text-right">
-                                <input type="checkbox" class="custom-control-input" id="domicilio" value="1">
+                                <input type="checkbox" class="custom-control-input" name="domicilio" id="domicilio" value="1">
                                 <label class="custom-control-label" for="domicilio">Domicilio</label>
                             </div>
                             <div class="custom-control custom-checkbox mb-3 mt-2 text-right">
-                                <input type="checkbox" class="custom-control-input" id="propina" value="1">
+                                <input type="checkbox" class="custom-control-input" name="propina" id="propina" value="1">
                                 <label class="custom-control-label" for="propina">Propina</label>
                             </div>
                         </div>

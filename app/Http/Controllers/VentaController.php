@@ -141,7 +141,7 @@ class VentaController extends Controller
             'vendedor' => $vendedor,
             'cliente' => $cliente,
             'total' => $total,
-            'sucursal' => $sucursal
+            'sucursal' => $sucursal,
 
         ];
 

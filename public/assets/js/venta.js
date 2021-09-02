@@ -204,6 +204,7 @@ function ValidarVenta() {
     let telefono_cliente = $("#telefono_cliente").val();
     let direccion_cliente = $("#direccion_cliente").val();
 
+
     // Validamos identifiacion y nombre que son obligatorios
     if(!identificacion_cliente || !nombre_cliente) {
         alert("Debe ingresar cliente");
@@ -211,6 +212,7 @@ function ValidarVenta() {
     }
 
     let domicilio = $("#domicilio").is(":checked") ? 1 : 0;
+    let propina = $("#propina").is(":checked") ? 1 : 0;
 
     // Si es a domicilio, validamos que tenga la direccion
     if(domicilio == 1){
@@ -265,6 +267,7 @@ function ValidarVenta() {
                "&direccion_cliente="+direccion_cliente+
                "&identificacion_vendedor="+identificacion_vendedor+
                "&domicilio="+domicilio+
+               "&propina="+propina+
                "&metodo_pago="+metdoPago;
 
     $.ajax({
