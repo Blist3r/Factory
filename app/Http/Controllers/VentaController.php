@@ -181,7 +181,11 @@ class VentaController extends Controller
     }
 
     public function print_cierre(Request $request) {
-        $ventas = DB::select('select p.nombre, sum(p.valor) as total, count(p.id) as cantidad FROM productos p left join detallesventas d on d.productos_id = p.id left join ventas v on v.id = d.ventas_id where v.sedes_id = ? and v.fecha = ? group by p.nombre', [$request['sucursal'], date('Y-m-d') ]);
+        $ventas = DB::select('select p.nombre, sum(d.cantidad) as cantidad, (sum(d.cantidad) * p.valor) as total
+        FROM productos p 
+        left join detallesventas d on d.productos_id = p.id 
+        left join ventas v on v.id = d.ventas_id 
+        where v.sedes_id = ? and v.fecha = ? group by p.nombre;', [$request['sucursal'], date('Y-m-d') ]);
         $numero_ventas = Venta::where('sedes_id', $request['sucursal'])->where('fecha', date('Y-m-d'))->get()->count();
 
 
