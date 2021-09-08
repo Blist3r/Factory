@@ -311,6 +311,7 @@ function print_ticket(data) {
         type : "GET",
         data: data,
         dataType : 'json',
+        headers : false,
         success : function(data){
             console.log(data);
         }

@@ -94,6 +94,7 @@ function print_ticket(data) {
         type : "GET",
         data: data,
         dataType : 'json',
+        headers : false,
         success : function(data){
             console.log(data);
         }
@@ -106,6 +107,7 @@ function Imprimir(id) {
         type : "POST",
         data: {id:id},
         dataType : 'json',
+        headers : false,
         success : function(data){
             print_ticket(data)
         },
