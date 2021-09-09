@@ -53,6 +53,17 @@ if($_POST['ventas']) {
     }
 }
 
+//if($_POST['propina']) {
+//    foreach($_POST['propina'] as $row) {
+//        $printer->text(
+//            new item(
+//                substr($row['cantidad'].'x '.$row['propina'], 0, 35), 
+//                '$'.number_format($row['total'])
+//            )
+//        );
+//    }
+//}
+
 $printer->setJustification(Printer::JUSTIFY_CENTER);
 $printer->text("\n\nDetalle de Ventas \n\n");
 
@@ -83,6 +94,7 @@ $printer->setJustification(Printer::JUSTIFY_LEFT);
 $printer->text(new item('Total Efectivo : ', '$'.number_format($_POST['ventas_total']['efectivo'])));
 $printer->text(new item('Total Tarjeta: ', '$'.number_format($_POST['ventas_total']['tarjeta'])));
 $printer->text(new item('Total Dia: ', '$'.number_format($_POST['ventas_total']['total'])));
+//$printer->text(new item('Propinas: ', '$'.number_format($_POST['propinas']['total'])));
 
 $printer->text("\n\n");
 

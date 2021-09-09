@@ -107,6 +107,7 @@ function Imprimir(id) {
         type : "POST",
         data: {id:id},
         dataType : 'json',
+        headers : false,
         success : function(data){
             print_ticket(data)
         },
