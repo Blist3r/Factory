@@ -82,7 +82,8 @@ class UsersController extends Controller
                 return redirect()->back()->with(['create' => 0, 'mensaje' => 'El usuario no se actualizado correctamente']);
             }
 
-             //---------------------- CREAR, Si no llega el $request->id, se creara un registro nuevo. -------------------------------
+        
+            //---------------------- CREAR, Si no llega el $request->id, se creara un registro nuevo. -------------------------------
 
 
         }

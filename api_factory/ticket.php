@@ -87,8 +87,8 @@ $printer->text("Subtotal: $".number_format($subtotalprecio)."\n");
 // 	$printer->text('Envio: $'.number_format($_GET['cost_sending'])."\n");
 // }
 if($_GET['venta']['domicilio'] == 1) {
-    $printer->text('Envio: $4.000'."\n");
-    $subtotalprecio = $subtotalprecio + 4000;
+    $printer->text('Envio: $3.000'."\n");
+    $subtotalprecio = $subtotalprecio + 3000;
 }
 
 if($_GET['venta']['propina'] == 1) {
