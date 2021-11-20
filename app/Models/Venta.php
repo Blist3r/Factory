@@ -13,6 +13,7 @@ class Venta extends Model
         'fecha',
         'total',
         'propina',
+        'valor_propina',
         'domicilio',
         'sedes_id',
         'users_id',

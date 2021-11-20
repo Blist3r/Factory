@@ -92,8 +92,8 @@ if($_GET['venta']['domicilio'] == 1) {
 }
 
 if($_GET['venta']['propina'] == 1) {
-    $printer->text('Propina: $2.000'."\n");
-    $subtotalprecio = $subtotalprecio + 2000;
+    $printer->text('Propina:'.$value['valor_propina']."\n");
+    $subtotalprecio = $subtotalprecio + $value['valor_propina'];
 }
 
 

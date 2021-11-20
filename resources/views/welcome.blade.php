@@ -147,7 +147,8 @@
                             </div>
                             <div class="custom-control custom-checkbox mb-3 mt-2 text-right">
                                 <input type="checkbox" class="custom-control-input" name="propina" id="propina" value="1">
-                                <label class="custom-control-label" for="propina">Propina</label>
+                                <label class="custom-control-label mr-2" for="propina">Propina </label>
+                                <input type="number" class="form-control mt-2 d-none" placeholder="Valor propina" name="valor_propina" id="valor_propina">
                             </div>
                         </div>
                     </div>

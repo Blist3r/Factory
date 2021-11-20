@@ -94,7 +94,7 @@ $printer->setJustification(Printer::JUSTIFY_LEFT);
 $printer->text(new item('Total Efectivo : ', '$'.number_format($_POST['ventas_total']['efectivo'])));
 $printer->text(new item('Total Tarjeta: ', '$'.number_format($_POST['ventas_total']['tarjeta'])));
 $printer->text(new item('Total Dia: ', '$'.number_format($_POST['ventas_total']['total'])));
-//$printer->text(new item('Propinas: ', '$'.number_format($_POST['propinas']['total'])));
+$printer->text(new item('Propinas: ', '$'.number_format($_POST['propina']['valor_propina'])));
 
 $printer->text("\n\n");
 

@@ -66,6 +66,7 @@ function cierre() {
         dataType : 'json',
         async: false,
         success : function(data){
+            console.log(data);
             if(data) {
                 print_cierre(data);
             }

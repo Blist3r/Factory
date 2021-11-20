@@ -6,6 +6,16 @@ $.ajaxSetup({
 
 $(document).ready(function () {
    cargarProductos();
+   $('#propina').click(function () { 
+    if ($('#propina').is(":checked"))
+        {
+            $("#valor_propina").removeClass("d-none");
+        }
+    else 
+        {
+            $("#valor_propina").addClass("d-none");
+        } 
+    })
 });
 
 // funcion para traer los productos
@@ -213,6 +223,10 @@ function ValidarVenta() {
 
     let domicilio = $("#domicilio").is(":checked") ? 1 : 0;
     let propina = $("#propina").is(":checked") ? 1 : 0;
+    let valor_propina = 0;
+    if (propina){
+        valor_propina = $("#valor_propina").val();
+    }
 
     // Si es a domicilio, validamos que tenga la direccion
     if(domicilio == 1){
@@ -268,6 +282,7 @@ function ValidarVenta() {
                "&identificacion_vendedor="+identificacion_vendedor+
                "&domicilio="+domicilio+
                "&propina="+propina+
+               "&valor_propina="+valor_propina+
                "&metodo_pago="+metdoPago;
 
     $.ajax({

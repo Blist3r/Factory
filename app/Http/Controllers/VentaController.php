@@ -99,6 +99,7 @@ class VentaController extends Controller
             'total' => 0,
             'domicilio' => $request['domicilio'] ?? NULL,
             'propina'=> $request['propina'] ?? 0,
+            'valor_propina'=> $request['valor_propina'] ?? 0,
             'metodo_pago' => $request['metodo_pago'],
             'sedes_id' => $vendedor->sedes_id,
             'users_id' => $vendedor->id,
@@ -212,12 +213,14 @@ class VentaController extends Controller
             Venta::where('sedes_id', $request['sucursal'])->where('fecha', date('Y-m-d'))->sum('total')
         ];
 
-        //$propinas = [
-        //
-        //    'total' =>
-        //    Venta::where('sedes_id', $request['sucursal'])->where('fecha', date('Y-m-d'))->sum('propina')
-        //
-        //];
+        $valor_propina = [
+        
+           'numero_de_propinas' =>
+            Venta::where('sedes_id', $request['sucursal'])->where('fecha', date('Y-m-d'))->where('propina', "1")->sum('propina'),
+           'total' =>
+            Venta::where('sedes_id', $request['sucursal'])->where('fecha', date('Y-m-d'))->where('propina', "1")->sum('valor_propina')
+           
+        ];
 
         $fecha = date('Y-m-d H:i:s');
 
@@ -236,6 +239,7 @@ class VentaController extends Controller
             'ventas_fisicas' => $ventas_fisicas,
             'ventas_domicilio' => $ventas_domicilio,
             'ventas_total' => $ventas_total,
+            'propinas' => $valor_propina,
             'total' => $numero_ventas,
             'fecha' => $fecha,
             'ultimo_cierre' => [

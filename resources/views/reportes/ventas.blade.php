@@ -87,6 +87,7 @@
                                         <th scope="col">Cliente</th>
                                         <th scope="col">Metodo de Pago</th>
                                         <th scope="col">Propina</th>
+                                        <th scope="col">Valor propina</th>
                                         <th scope="col">Total</th>
                                         <th scope="col" class="text-center"> <span>  <i class="fa fa-cog"></i> </span> </th>
                                     </tr>
@@ -102,6 +103,7 @@
                                             <td> {{ App\Models\Cliente::find($venta->clientes_id)->nombre }} </td>
                                             <td> {{ $venta->metodo_pago}} </td>
                                             <td> {{ $venta->propina }} </td>
+                                            <td> {{ number_format($venta->valor_propina)}} </td>
                                             <td> {{ number_format($venta->total)}} </td>
                                             <td class="text-center">
                                                 <span>

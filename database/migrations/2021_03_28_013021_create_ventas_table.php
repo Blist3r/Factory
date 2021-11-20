@@ -19,6 +19,7 @@ class CreateVentasTable extends Migration
             $table->integer('total');
             $table->integer('domicilio');
             $table->boolean('propina');
+            $table->integer('valor_propina');
             $table->string('metodo_pago');
 
             #Relaciones
